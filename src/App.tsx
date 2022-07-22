@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
@@ -27,6 +28,21 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+=======
+import "./App.css";
+const { Sidebar, SidebarItem } = require("react-responsive-sidebar");
+
+function App() {
+  const items = [
+    <SidebarItem>Dashboard</SidebarItem>,
+    <SidebarItem>Profile</SidebarItem>,
+    <SidebarItem>Settings</SidebarItem>,
+  ];
+
+  return (
+    <div className="App">
+      <Sidebar content={items}></Sidebar>
+>>>>>>> Stashed changes
     </div>
   )
 }
