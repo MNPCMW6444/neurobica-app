@@ -6,9 +6,9 @@ enum NeurobicaColors {
   Third = "#FFFFFF",
 }
 const pages = [
-  <SidebarItem>Dashboard</SidebarItem>,
-  <SidebarItem>Profile</SidebarItem>,
-  <SidebarItem>Settings</SidebarItem>,
+  <SidebarItem>My Account</SidebarItem>,
+  <SidebarItem>My Brain</SidebarItem>,
+  <SidebarItem>Train My Brain</SidebarItem>,
 ];
 
 function App() {
