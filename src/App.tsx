@@ -1,26 +1,8 @@
 import "./App.css";
-const { Sidebar, SidebarItem } = require("react-responsive-sidebar");
-enum NeurobicaColors {
-  Main = "#F9A645",
-  Second = "#000000",
-  Third = "#FFFFFF",
-}
-const pages = [
-  <SidebarItem>My Account</SidebarItem>,
-  <SidebarItem>My Brain</SidebarItem>,
-  <SidebarItem>Train My Brain</SidebarItem>,
-];
+import SideBar from "./components/SideBar";
 
 function App() {
-  return (
-    <div className="App">
-      <Sidebar
-        content={pages}
-        background={NeurobicaColors.Main}
-        color={NeurobicaColors.Second}
-      ></Sidebar>
-    </div>
-  );
+  return <SideBar />;
 }
 
 export default App;
