@@ -1,0 +1,9 @@
+.statusBar {
+  background-color: #ff0000;
+  height: 10vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
