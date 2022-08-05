@@ -10,4 +10,4 @@ export default function LoginStatus() {
       {user._id ? "Welcome back " + user.name + "!" : <button>Login</button>}
     </div>
   );
-} // trest
+}
