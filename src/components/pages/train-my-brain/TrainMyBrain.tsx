@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function TrainMyBrain() {
-  return <div>TrainmyBrain</div>;
+  return <div>TrainMyBrain</div>;
 }
