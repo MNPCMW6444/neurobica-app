@@ -6,7 +6,6 @@ export default function MyAccount() {
   return (
     <div className="myAccount">
       <StatusBar />
-      wdfwef
     </div>
   );
 }
