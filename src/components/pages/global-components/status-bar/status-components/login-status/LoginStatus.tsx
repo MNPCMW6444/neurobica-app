@@ -7,7 +7,11 @@ export default function LoginStatus() {
 
   return (
     <div className="loginStatus">
-      {user._id ? "Welcome back " + user.name + "!" : <button>Login</button>}
+      {user._id ? (
+        "Welcome back " + user.fullname + "!"
+      ) : (
+        <button>Login</button>
+      )}
     </div>
   );
 }
