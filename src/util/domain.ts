@@ -8,6 +8,6 @@ const domains: {
   local: "http://localhost:6444/",
 };
 
-//export default domains.production;
-//export default domains.preProduction;
-export default domains.local;
+export default process.env.NODE_ENV === "production"
+  ? domains.production
+  : domains.local;
