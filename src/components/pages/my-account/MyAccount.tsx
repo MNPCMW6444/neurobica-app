@@ -1,11 +1,8 @@
 import React from "react";
-import StatusBar from "../global-components/status-bar/StatusBar";
-import "./myAccount.css";
+import "./statusBar.css";
 
-export default function MyAccount() {
-  return (
-    <div className="myAccount">
-      <StatusBar />
-    </div>
-  );
+export default function SignIn() {
+  return <div> 
+  </div>;
+
 }
