@@ -32,10 +32,10 @@ export default function SignIn() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            bgcolor: 'secondary.main',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-end'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -44,6 +44,9 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          <Avatar alt="Facebook" src="/public/Icons/Facebook-icon.jpg" />
+          <Avatar alt="Amazon" src="/public/Icons/amazon-icon.png" />
+          <Avatar alt="Google" src="/public/Icons/Google-icon.png" />
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
