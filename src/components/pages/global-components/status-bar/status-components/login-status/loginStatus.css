@@ -1,4 +1,7 @@
 .loginStatus {
   background-color: green;
   padding: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
