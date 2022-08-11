@@ -1,5 +1,16 @@
-import React from "react";
+import LoginPageSignInSignUp from "./login-page/login-page-sign-in-sign-up/LoginPageSignInSignUp";
 
 export default function LoginPage() {
-  return <div>Yoad make the UI herer\</div>;
+  return (
+    <div>
+      {/*       <LoginPageLogo />
+       */}
+      <LoginPageSignInSignUp />
+      {/*  <LoginPageFields />
+      <LoginPageOptions />
+      <LoginPageSendButton />
+      <LoginPageExternalAuthButtons />
+      <LoginPagefooter />*/}
+    </div>
+  );
 }
