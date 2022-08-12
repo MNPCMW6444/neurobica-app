@@ -1,3 +1,4 @@
+import LoginPageLogo from "./login-page/login-page-logo/LoginPageLogo";
 import LoginPageExternalAuthButtons from "./login-page/login-page-external-auth-buttons/LoginPageExternalAuthButtons";
 import LoginPageFields from "./login-page/login-page-fields/LoginPageFields";
 import LoginPagefooter from "./login-page/login-page-footer/LoginPagefooter";
@@ -8,8 +9,10 @@ import LoginPageSignInSignUp from "./login-page/login-page-sign-in-sign-up/Login
 export default function LoginPage() {
   return (
     <div>
-      {/* <LoginPageLogo />
-       */}
+ login-page-mui
+      <LoginPageLogo />
+  
+ main
       <LoginPageSignInSignUp />
       <LoginPageFields />
       <LoginPageOptions />
