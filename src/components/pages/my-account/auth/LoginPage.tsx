@@ -1,10 +1,10 @@
+import LoginPageLogo from "./login-page/login-page-logo/LoginPageLogo";
 import LoginPageSignInSignUp from "./login-page/login-page-sign-in-sign-up/LoginPageSignInSignUp";
 
 export default function LoginPage() {
   return (
     <div>
-      {/*       <LoginPageLogo />
-       */}
+      <LoginPageLogo />
       <LoginPageSignInSignUp />
       {/*  <LoginPageFields />
       <LoginPageOptions />
