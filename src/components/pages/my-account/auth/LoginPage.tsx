@@ -9,10 +9,7 @@ import LoginPageSignInSignUp from "./login-page/login-page-sign-in-sign-up/Login
 export default function LoginPage() {
   return (
     <div>
- login-page-mui
       <LoginPageLogo />
-  
- main
       <LoginPageSignInSignUp />
       <LoginPageFields />
       <LoginPageOptions />

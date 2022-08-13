@@ -1,7 +1,7 @@
 .statusBar {
   background-color: #ff0000;
   height: 10vh;
-  width: 100vw;
+  width: calc(100% - 300px);
   position: fixed;
   top: 0;
   display: flex;
