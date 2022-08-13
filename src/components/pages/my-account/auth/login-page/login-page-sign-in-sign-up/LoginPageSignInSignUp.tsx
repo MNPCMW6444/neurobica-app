@@ -1,7 +1,7 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useState } from "react";
 import "./loginPageSignInSignUp.css";
-import loginPageToggleButton from "./loginPageToggleButton";
+import LoginPageSignInSignUpStyle from "./LoginPageSignInSignUpStyle";
 
 export default function LoginPageSignInSignUp() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -20,8 +20,8 @@ export default function LoginPageSignInSignUp() {
           }}
           sx={
             isSignIn
-              ? loginPageToggleButton.selected
-              : loginPageToggleButton.unselected
+              ? LoginPageSignInSignUpStyle.selected
+              : LoginPageSignInSignUpStyle.unselected
           }
           value="signin"
         >
@@ -33,8 +33,8 @@ export default function LoginPageSignInSignUp() {
           }}
           sx={
             isSignIn
-              ? loginPageToggleButton.unselected
-              : loginPageToggleButton.selected
+              ? LoginPageSignInSignUpStyle.unselected
+              : LoginPageSignInSignUpStyle.selected
           }
           value="signup"
         >
