@@ -12,9 +12,7 @@ export default function LoginPageSignup() {
   return (
     
     <>
-    <div>
-        <NeurobicaLogo zoom={"30%"} />
-    </div>
+
     <div>
       <br />
       <br />
@@ -75,8 +73,8 @@ export default function LoginPageSignup() {
         <div>
           <TextField
             error={false}
-            type="repeat password"
-            label="repeat Password"
+            type="confirm password"
+            label="Confirm Password"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">

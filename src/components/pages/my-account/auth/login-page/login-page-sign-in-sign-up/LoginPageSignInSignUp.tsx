@@ -4,7 +4,7 @@ import LoginPageSignInSignUpStyle from "./LoginPageSignInSignUpStyle";
 
 export default function LoginPageSignInSignUp(props: {
   isSignIn: boolean;
-  setIsSignIn: function;
+  setIsSignIn: Function;
 }) {
   return (
     <div className="loginPageSignInSignUp">
