@@ -1,8 +1,8 @@
 import "./App.css";
-import SideBar from "./components/SideBar";
+import BottomBar from "./components/BottomBar";
 
 function App() {
-  return <SideBar />;
+  return <BottomBar />;
 }
 
 export default App;
