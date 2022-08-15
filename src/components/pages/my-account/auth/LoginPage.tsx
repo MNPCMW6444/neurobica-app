@@ -7,6 +7,7 @@ import LoginPageSendButton from "./login-page/login-page-send-button/LoginPageSe
 import LoginPageSignInSignUp from "./login-page/login-page-sign-in-sign-up/LoginPageSignInSignUp";
 
 export default function LoginPage() {
+
   return (
     <div>
       <LoginPageLogo />
