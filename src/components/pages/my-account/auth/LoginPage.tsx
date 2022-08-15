@@ -5,14 +5,18 @@ import LoginPagefooter from "./login-page/login-page-footer/LoginPagefooter";
 import LoginPageOptions from "./login-page/login-page-options/LoginPageOptions";
 import LoginPageSendButton from "./login-page/login-page-send-button/LoginPageSendButton";
 import LoginPageSignInSignUp from "./login-page/login-page-sign-in-sign-up/LoginPageSignInSignUp";
+import { useState } from "react";
 
 export default function LoginPage() {
+  const [isSignIn, setIsSignIn] = useState(true);
 
   return (
     <div>
       <LoginPageLogo />
-      <LoginPageSignInSignUp />
+      const [isSignIn, setIsSignIn] = useState(true);
+      <LoginPageSignInSignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />
       <LoginPageFields />
+      {/* replace this with : {isSignin ? <LoginPageFields /> : <RegisterPageFields /> }*/}
       <LoginPageOptions />
       <LoginPageSendButton />
       <LoginPageExternalAuthButtons />

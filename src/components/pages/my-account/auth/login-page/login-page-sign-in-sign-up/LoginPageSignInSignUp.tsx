@@ -1,14 +1,15 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { useState } from "react";
 import "./loginPageSignInSignUp.css";
 import LoginPageSignInSignUpStyle from "./LoginPageSignInSignUpStyle";
 
-export default function LoginPageSignInSignUp() {
-  const [isSignIn, setIsSignIn] = useState(true);
+export default function LoginPageSignInSignUp(props: {
+  isSignIn: boolean;
+  setIsSignIn: function;
+}) {
   return (
     <div className="loginPageSignInSignUp">
       <ToggleButtonGroup
-        value={isSignIn}
+        value={props.isSignIn}
         /* onChange={(event, newAlignment) => {
           setIsSignIn(newAlignment);
         }}
@@ -16,10 +17,10 @@ export default function LoginPageSignInSignUp() {
       >
         <ToggleButton
           onClick={() => {
-            setIsSignIn(true);
+            props.setIsSignIn(true);
           }}
           sx={
-            isSignIn
+            props.isSignIn
               ? LoginPageSignInSignUpStyle.selected
               : LoginPageSignInSignUpStyle.unselected
           }
@@ -29,10 +30,10 @@ export default function LoginPageSignInSignUp() {
         </ToggleButton>
         <ToggleButton
           onClick={() => {
-            setIsSignIn(false);
+            props.setIsSignIn(false);
           }}
           sx={
-            isSignIn
+            props.isSignIn
               ? LoginPageSignInSignUpStyle.unselected
               : LoginPageSignInSignUpStyle.selected
           }
