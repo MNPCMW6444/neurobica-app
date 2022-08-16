@@ -1,6 +1,6 @@
-import Checkbox from '@mui/material/Checkbox'
-import React from 'react';
-import "./loginPageOptions.css"
+import Checkbox from "@mui/material/Checkbox";
+import React from "react";
+import "./loginPageOptions.css";
 export default function LoginPageOptions() {
   const [checked, setChecked] = React.useState(true);
 
@@ -9,18 +9,16 @@ export default function LoginPageOptions() {
   };
 
   return (
-    <div className='check'>
-    <Checkbox
-    checked={checked}
-    onChange={handleChange}
-    inputProps={{ 'aria-label': 'controlled' }}
-    
-    sx={{
-      alignSelf:"center"
-    }}
-  />
-  Remember Password?
+    <div className="check">
+      <Checkbox
+        checked={checked}
+        onChange={handleChange}
+        inputProps={{ "aria-label": "controlled" }}
+        sx={{
+          alignSelf: "center",
+        }}
+      />
+      Remember Password?
     </div>
-  )
-  }
-
+  );
+}
