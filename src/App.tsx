@@ -13,7 +13,7 @@ function App() {
   <div>
     <Body />
   </div>
-  <BottomBar />;
+  <BottomBar />
   </>
 }
 

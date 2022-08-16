@@ -1,4 +1,5 @@
 import useUser from "../../../hooks/useUser";
+import LoginPage from "./auth/LoginPage";
 import "./myAccount.css";
 
 export default function MyAccount() {
@@ -9,7 +10,7 @@ export default function MyAccount() {
 
     <div className="myAccount">
   
-        
+        <LoginPage />
     </div>
     </>
   );

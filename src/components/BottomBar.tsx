@@ -21,7 +21,13 @@ export default function BottomBar() {
     setValue(newValue);
   }} sx={{
     backgroundColor:"#F5F5F5",
-    height:"10vh"
+    height:"10vh",
+    position:"fixed",
+    bottom:"0",
+    width:"100%",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center"    
 
   }}
 >

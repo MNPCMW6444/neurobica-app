@@ -26,7 +26,7 @@ export default function StatusBar() {
       <div>
       
         <LoginStatus />
-        <Button variant="outlined" href="../../my-account/auth/LoginPage" sx={{
+        <Button variant="outlined" href="../../my-account/auth" sx={{
           color:"GrayText",
           border:"HighlightText"
           
