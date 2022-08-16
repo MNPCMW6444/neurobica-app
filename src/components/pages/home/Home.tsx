@@ -5,7 +5,7 @@ import "./homePage.css";
 export default function Home() {
   return (
     <div className="homePage">
-      wdfwef
+      Home Page
     </div>
   );
 }
