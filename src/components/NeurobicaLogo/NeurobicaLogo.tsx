@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import NeurobicaLogoAsset from "../../assets/Logo PNG.png";
+import NeurobicaLogoAsset from "../../assets/LogoPNG.png";
 export default function NeurobicaLogo() {
   return (
     <Box
@@ -13,7 +13,7 @@ export default function NeurobicaLogo() {
         top: { xs: 5 },
         left: { xs: 10 },
       }}
-      alt="Blue Torch Logo"
+      alt="Neurobica Logo"
       src={NeurobicaLogoAsset}
     />
   );

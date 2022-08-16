@@ -66,10 +66,6 @@ export default function LoginPageFields() {
           />
         </div>
       </Box>
-
-      <br />
-      <br />
-      <br />
     </div>
   );
 }

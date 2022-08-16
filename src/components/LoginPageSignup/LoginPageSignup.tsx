@@ -88,10 +88,6 @@ export default function LoginPageSignup() {
             />
           </div>
         </Box>
-
-        <br />
-        <br />
-        <br />
       </div>
     </>
   );

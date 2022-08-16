@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import LoginStatus from "../LoginStatus/LoginStatus";
 import "./statusBar.css";
-import lneurobicaLogo from "../../assets/Logo PNG.png";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 
 export default function StatusBar() {
@@ -11,10 +10,7 @@ export default function StatusBar() {
         <div
           className="neurobicaLogo"
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "3%",
+            margin: "43%",
           }}
         >
           <NeurobicaLogo />
