@@ -27,7 +27,7 @@ export default function LoginPageFields() {
         <div>
           <TextField
             error={false}
-            id="tandard-basic"
+            id="sandard-basic"
             type="email"
             label="Email Address"
             InputProps={{
