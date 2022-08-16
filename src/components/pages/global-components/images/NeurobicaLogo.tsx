@@ -1,19 +1,24 @@
-import lneurobicaLogo from "../../../../assets/logo512.png";
+import lneurobicaLogo from "../../../../assets/Logo PNG.png"
 
 export default function NeurobicaLogo(props: { zoom: string }) {
   return (
+    <>
+    <br></br>
     <div
       className="neurobicaLogo"
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        margin: "3%"
+        
       }}
     >
       <img
         src={lneurobicaLogo}
-        style={{ backgroundColor: "white", width: props.zoom }}
+        style={{ width: props.zoom }}
       />
     </div>
+    </>
   );
 }
