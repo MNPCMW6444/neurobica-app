@@ -5,16 +5,16 @@ import StatusBar from "./components/pages/global-components/status-bar/StatusBar
 
 function App() {
   return <>
-  <div>
+  <div className="top">
    <StatusBar />
   </div>
   <br>
   </br>
-  <div className="body">
+  <div>
     <Body />
   </div>
   <BottomBar />;
   </>
-};
+}
 
 export default App;

@@ -7,6 +7,7 @@ import { useState } from "react";
 import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import { display, grid } from "@mui/system";
 
 export default function BottomBar() {
   const [value, setValue] = useState("");
@@ -18,6 +19,10 @@ export default function BottomBar() {
   value={value}
   onChange={(value, newValue) => {
     setValue(newValue);
+  }} sx={{
+    backgroundColor:"#F5F5F5",
+    height:"10vh"
+
   }}
 >
   <BottomNavigationAction href="/train-my-brain" label="Train" icon={<FitnessCenterIcon />} />
