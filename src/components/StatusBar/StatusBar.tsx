@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import LoginStatus from "../LoginStatus/LoginStatus";
 import "./statusBar.css";
 import lneurobicaLogo from "../../assets/Logo PNG.png";
+import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 
 export default function StatusBar() {
   return (
@@ -16,7 +17,7 @@ export default function StatusBar() {
             margin: "3%",
           }}
         >
-          <img src={lneurobicaLogo} style={{ width: "50px" }} />
+          <NeurobicaLogo />
         </div>
         <div>
           <LoginStatus />

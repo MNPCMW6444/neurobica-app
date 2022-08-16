@@ -1,4 +1,4 @@
-import LoginPageLogo from "../LoginPageLogo/LoginPageLogo";
+import LoginPageLogo from "../NeurobicaLogo/NeurobicaLogo";
 import LoginPageExternalAuthButtons from "../LoginPageExternalAuthButtons/LoginPageExternalAuthButtons";
 import LoginPageFields from "../LoginPageFields/LoginPageFields";
 import LoginPagefooter from "../LoginPagefooter/LoginPagefooter";

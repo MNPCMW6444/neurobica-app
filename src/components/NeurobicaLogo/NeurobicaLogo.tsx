@@ -1,20 +1,20 @@
-import lneurobicaLogo from "../../assets/Logo PNG.png";
-
-export default function NeurobicaLogo(props: { zoom: string }) {
+import Box from "@mui/material/Box";
+import NeurobicaLogoAsset from "../../assets/Logo PNG.png";
+export default function NeurobicaLogo() {
   return (
-    <>
-      <br></br>
-      <div
-        className="neurobicaLogo"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "3%",
-        }}
-      >
-        <img src={lneurobicaLogo} style={{ width: props.zoom }} />
-      </div>
-    </>
+    <Box
+      component="img"
+      sx={{
+        height: { xs: "4vh" },
+        width: { xs: "6vh" },
+        maxHeight: { xs: "60px" },
+        maxWidth: { xs: "150px" },
+        position: { xs: "fixed" },
+        top: { xs: 5 },
+        left: { xs: 10 },
+      }}
+      alt="Blue Torch Logo"
+      src={NeurobicaLogoAsset}
+    />
   );
 }
