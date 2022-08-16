@@ -31,6 +31,7 @@ export default function LoginPageSignup() {
         <div>
           <TextField
             error={false}
+            id="tandard-basic"
             type="email"
             label="Email Address"
             InputProps={{
@@ -51,6 +52,7 @@ export default function LoginPageSignup() {
         <div>
           <TextField
             error={false}
+            id="tandard-basic"
             type="password"
             label="Password"
             InputProps={{
@@ -71,6 +73,7 @@ export default function LoginPageSignup() {
         <div>
           <TextField
             error={false}
+            id="tandard-basic"
             type="confirm password"
             label="Confirm Password"
             InputProps={{

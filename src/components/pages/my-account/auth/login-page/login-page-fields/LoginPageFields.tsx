@@ -27,6 +27,7 @@ export default function LoginPageFields() {
         <div>
           <TextField
             error={false}
+            id="tandard-basic"
             type="email"
             label="Email Address"
             InputProps={{
@@ -47,6 +48,7 @@ export default function LoginPageFields() {
         <div>
           <TextField
             error={false}
+            id="tandard-basic"
             type="password"
             label="Password"
             InputProps={{
