@@ -11,8 +11,6 @@ export default function LoginPageFields() {
   return (
     <div>
       <br />
-      <br />
-      <br />
 
       <Box
         component="form"

@@ -1,6 +1,6 @@
 import NeurobicaLogo from "../../../../global-components/images/NeurobicaLogo";
 import { Email, Lock } from "@mui/icons-material";
-import { InputAdornment } from "@mui/material";
+import { Button, InputAdornment } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
@@ -12,11 +12,9 @@ export default function LoginPageSignup() {
   return (
     
     <>
-
     <div>
       <br />
-      <br />
-      <br />
+
 
       <Box
         component="form"
@@ -89,6 +87,7 @@ export default function LoginPageSignup() {
             }}
           />
         </div>
+       
       </Box>
 
       <br />

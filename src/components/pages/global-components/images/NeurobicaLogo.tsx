@@ -16,7 +16,7 @@ export default function NeurobicaLogo(props: { zoom: string }) {
     >
       <img
         src={lneurobicaLogo}
-        style={{ backgroundColor: "white", width: props.zoom }}
+        style={{ width: props.zoom }}
       />
     </div>
     </>

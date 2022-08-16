@@ -13,8 +13,8 @@ export default function LoginPage() {
 
   return (
     <div>
+      <br></br>
       <LoginPageLogo />
-      const [isSignIn, setIsSignIn] = useState(true);
       <LoginPageSignInSignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />
       {isSignIn ? <LoginPageFields /> : <RegisterPageFields /> }
       <LoginPageOptions />

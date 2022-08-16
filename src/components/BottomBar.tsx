@@ -16,13 +16,13 @@ export default function BottomBar() {
    <BottomNavigation
   showLabels
   value={value}
-  onChange={(event, newValue) => {
+  onChange={(value, newValue) => {
     setValue(newValue);
   }}
 >
-  <BottomNavigationAction href="/my-account/MyAccount" label="Train" icon={<FitnessCenterIcon />} />
-  <BottomNavigationAction href="/my-brain" label="Home" icon={<HomeIcon />} />
-  <BottomNavigationAction href="/train-my-brain" label="Brain" icon={<PsychologyOutlinedIcon />} />
+  <BottomNavigationAction href="/train-my-brain" label="Train" icon={<FitnessCenterIcon />} />
+  <BottomNavigationAction href="/home" label="Home" icon={<HomeIcon />} />
+  <BottomNavigationAction href="/my-brain"label="Brain" icon={<PsychologyOutlinedIcon />} />
 </BottomNavigation>
     </div>
   );
