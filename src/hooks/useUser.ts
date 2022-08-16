@@ -29,7 +29,6 @@ export default (endpoit: string, params: {}, dependecies: []): any => {
       ...defaultSettings,
     });
     const url = domain.toString() + endpoit;
-    debugger;
     const promise = Axios.get(url, {
       params: { ...params, window: window.toString() },
       cancelToken: source.token,
