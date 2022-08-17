@@ -2,10 +2,8 @@
   background-color: #FFFEEB;
   height: 5vh;
   width: 100%;
-  position: fixed;
   top: 0;
   display: flex;
-  justify-content: flex-start;
 
 }
 
@@ -13,12 +11,10 @@
 @media only screen and (max-width: 980px) {
   .statusBar {
     background-color: #FFFEEB;
-    height: 4.5vh;
+    height: 5h;
     width: 100%;
-    position: fixed;
     top: 0;
     display: flex;
-    justify-content:flex-start;
     border-bottom: 0.3vh solid #87A0B2;
   }
 }
