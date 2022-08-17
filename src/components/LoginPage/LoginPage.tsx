@@ -15,6 +15,7 @@ import {
 
 export default function LoginPage() {
   const [isSignIn, setIsSignIn] = useState(true);
+  const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
 
   return (
     <div>
@@ -41,11 +42,15 @@ export default function LoginPage() {
         </Grid>
         <Grid item xs={4}>
           <GoogleReCaptchaProvider reCaptchaKey="6LcrTYUhAAAAALcocJuPUztaWEIAsY_DdAuRxx8b">
-            <GoogleReCaptcha onVerify={() => {}} />
+            <GoogleReCaptcha
+              onVerify={() => {
+                setSsAllowedToSignIn(true);
+              }}
+            />
           </GoogleReCaptchaProvider>
         </Grid>
         <Grid item xs={4}>
-          <LoginPageSendButton />
+          <LoginPageSendButton isAllowedToSignIn={isAllowedToSignIn} />
         </Grid>
         <Grid item xs={4}>
           <LoginPageExternalAuthButtons />
