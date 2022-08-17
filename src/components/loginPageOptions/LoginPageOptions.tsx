@@ -20,10 +20,10 @@ export default function LoginPageOptions() {
 <>
 <Grid container>
        <Grid item>   <FormControlLabel           
-          label="Rememmber My Password"
+          label="Rememmber Me"
           sx={{
             color:"GrayText",
-            width:"29vh"
+            width:"20vh"
           }}
         control={
           <Checkbox sx={{
@@ -41,7 +41,7 @@ export default function LoginPageOptions() {
       </Grid>
       <Grid item alignSelf="center"> 
      <div className="text">
-       <a href="src/components/ForgotPassword/ForgotPassword" style={{color:"#FF8B17"}}>Forgot Your Password?</a>
+       <a href="src/components/ForgotPassword/ForgotPassword" style={{color:"#FF8B17"}}>Trouble Logging In?</a>
     </div>
     </Grid>
     </Grid>
