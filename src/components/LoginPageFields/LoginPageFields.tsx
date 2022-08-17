@@ -1,4 +1,5 @@
-import { Email, Lock } from "@mui/icons-material";
+import Email from '@mui/icons-material/EmailOutlined';
+import Lock from '@mui/icons-material/LockOutlined';
 import { InputAdornment } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -15,19 +16,25 @@ export default function LoginPageFields() {
       <Box
         component="form"
         sx={{
-          m: 1,
+          m: 0,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-        }}
+
+       }}
         noValidate
         autoComplete="off"
       >
         <div>
-          <TextField
+          <TextField     sx={{
+          m: 0,
+          width:"40vh"
+
+       }}
             error={false}
             id="sandard-basic"
+            variant="standard"
             type="email"
             label="Email Address"
             InputProps={{
@@ -46,9 +53,14 @@ export default function LoginPageFields() {
         </div>
         <br />
         <div>
-          <TextField
+          <TextField sx={{
+          m: 0,
+          width:"40vh"
+
+       }}
             error={false}
-            id="tandard-basic"
+            id="tandard-basic"      
+            variant="standard"
             type="password"
             label="Password"
             InputProps={{
@@ -66,10 +78,6 @@ export default function LoginPageFields() {
           />
         </div>
       </Box>
-
-      <br />
-      <br />
-      <br />
     </div>
   );
 }
