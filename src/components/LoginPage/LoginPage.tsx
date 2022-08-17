@@ -1,4 +1,3 @@
-import LoginPageLogo from "../NeurobicaLogo/NeurobicaLogo";
 import LoginPageExternalAuthButtons from "../LoginPageExternalAuthButtons/LoginPageExternalAuthButtons";
 import LoginPageFields from "../LoginPageFields/LoginPageFields";
 import LoginPagefooter from "../LoginPagefooter/LoginPagefooter";
@@ -10,8 +9,8 @@ import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import RegisterPageFields from "../LoginPageSignup/LoginPageSignup";
 import Grid from "@mui/material/Grid";
 import {
-  GoogleReCaptchaProvider,
   GoogleReCaptcha,
+  GoogleReCaptchaProvider,
 } from "react-google-recaptcha-v3";
 
 export default function LoginPage() {
@@ -20,16 +19,6 @@ export default function LoginPage() {
 
   return (
     <div>
-      <br></br>
-      <LoginPageLogo />
-      {/*       <LoginPageSignInSignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />
-       */}
-      {isSignIn ? <LoginPageFields /> : /* <RegisterPageFields/> */ null}
-      {/*       <LoginPageOptions />
-       */}
-      <LoginPageSendButton />
-      <LoginPageExternalAuthButtons />
-      <LoginPagefooter />
       <Grid
         container
         spacing={{ xs: 4, md: 1 }}
@@ -37,9 +26,10 @@ export default function LoginPage() {
         direction="column"
         justifyContent="center"
         alignItems="center"
+        paddingTop="5%"
       >
         <Grid item xs={4}>
-          <NeurobicaLogo />
+          <NeurobicaLogo c={5} />
         </Grid>
         <Grid item xs={4}>
           <LoginPageSignInSignUp
