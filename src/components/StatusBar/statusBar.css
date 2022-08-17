@@ -11,7 +11,7 @@
 @media only screen and (max-width: 980px) {
   .statusBar {
     background-color: #FFFEEB;
-    height: 4.5vh;
+    height: 5h;
     width: 100%;
     top: 0;
     display: flex;

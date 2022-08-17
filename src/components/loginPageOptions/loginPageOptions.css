@@ -1,4 +1,6 @@
-.text{
-    font-size: x-small;
-    color: #FF8B17;
+.check{
+    display: flex;
+    justify-content:center;
+    
+
 }
