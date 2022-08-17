@@ -8,6 +8,10 @@ import LoginPageSignInSignUp from "../LoginPageSignInSignUp/LoginPageSignInSignU
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import RegisterPageFields from "../LoginPageSignup/LoginPageSignup";
 import Grid from "@mui/material/Grid";
+import {
+  GoogleReCaptchaProvider,
+  GoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 
 export default function LoginPage() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -26,7 +30,6 @@ export default function LoginPage() {
           <NeurobicaLogo />
         </Grid>
         <Grid item xs={4}>
-          {" "}
           <LoginPageSignInSignUp
             isSignIn={isSignIn}
             setIsSignIn={setIsSignIn}
@@ -35,6 +38,11 @@ export default function LoginPage() {
         </Grid>
         <Grid item xs={4}>
           <LoginPageOptions />
+        </Grid>
+        <Grid item xs={4}>
+          <GoogleReCaptchaProvider reCaptchaKey="6LcrTYUhAAAAALcocJuPUztaWEIAsY_DdAuRxx8b">
+            <GoogleReCaptcha onVerify={() => {}} />
+          </GoogleReCaptchaProvider>
         </Grid>
         <Grid item xs={4}>
           <LoginPageSendButton />
