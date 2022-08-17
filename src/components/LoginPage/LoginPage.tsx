@@ -14,7 +14,7 @@ export default function LoginPage() {
 
   return (
     <div>
-<Grid container spacing={{ xs: 0.5, md: 3 }} columns={{ xs: 4, md: 4 }} direction="column" justifyContent="center"
+<Grid container spacing={{ xs: 4, md: 1 }} columns={{ xs: 4, md: 4 }} direction="column" justifyContent="center"
   alignItems="center">
       <Grid item xs={4}><NeurobicaLogo /></Grid>
       <Grid item xs={4}> <LoginPageSignInSignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />

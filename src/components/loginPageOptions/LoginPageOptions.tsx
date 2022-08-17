@@ -17,13 +17,14 @@ export default function LoginPageOptions() {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
   return (
-
-          <FormControlLabel sx={{
-            display:"flex",
-            justifyContent:"center",
-
+<>
+<Grid container>
+       <Grid item>   <FormControlLabel           
+          label="Rememmber My Password"
+          sx={{
+            color:"GrayText",
+            width:"29vh"
           }}
-          label="Rememmber Password"
         control={
           <Checkbox sx={{
              fontSize: "28"
@@ -32,13 +33,20 @@ export default function LoginPageOptions() {
             checked={state.checkedB}
             onChange={handleChange}
             name="checkedB"
-            color="primary"
+            color="default"
             size="small"
           />
         }
       />
-      
-   
+      </Grid>
+      <Grid item alignSelf="center"> 
+     <div className="text">
+       <a href="src/components/ForgotPassword/ForgotPassword" style={{color:"#FF8B17"}}>Forgot Your Password?</a>
+    </div>
+    </Grid>
+    </Grid>
+
+      </>
 
   );
 }
