@@ -1,11 +1,8 @@
-import Email from '@mui/icons-material/EmailOutlined';
-import Lock from '@mui/icons-material/LockOutlined';
-import Locked from '@mui/icons-material/Lock';
+import { Email, Lock } from "@mui/icons-material";
+import { InputAdornment } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-import { InputAdornment } from "@mui/material";
-
 export default function LoginPageSignup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,15 +26,10 @@ export default function LoginPageSignup() {
           autoComplete="off"
         >
           <div>
-            <TextField sx={{
-          m: 0,
-          width:"40vh"
-
-       }}
+            <TextField
               error={false}
+              id="tandard-basic"
               type="email"
-              variant="standard"
-
               label="Email Address"
               InputProps={{
                 startAdornment: (
@@ -55,15 +47,10 @@ export default function LoginPageSignup() {
           </div>
           <br />
           <div>
-            <TextField sx={{
-          m: 0,
-          width:"40vh"
-
-       }}
+            <TextField
               error={false}
+              id="tandard-basic"
               type="password"
-              variant="standard"
-
               label="Password"
               InputProps={{
                 startAdornment: (
@@ -81,19 +68,15 @@ export default function LoginPageSignup() {
           </div>
           <br />
           <div>
-            <TextField sx={{
-          m: 0,
-          width:"40vh"
-
-       }}
+            <TextField
               error={false}
+              id="tandard-basic"
               type="confirm password"
-              variant="standard"
               label="Confirm Password"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <Locked />
+                    <Lock />
                   </InputAdornment>
                 ),
               }}
@@ -105,6 +88,10 @@ export default function LoginPageSignup() {
             />
           </div>
         </Box>
+
+        <br />
+        <br />
+        <br />
       </div>
     </>
   );
