@@ -16,8 +16,6 @@ import {
 export default function LoginPage() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <Grid
@@ -34,16 +32,7 @@ export default function LoginPage() {
       </Grid>
       <Grid item xs={4}>
         <LoginPageSignInSignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />
-        {isSignIn ? (
-          <LoginPageFields
-            email={email}
-            password={password}
-            setEmail={setEmail}
-            setPassword={setPassword}
-          />
-        ) : (
-          <RegisterPageFields />
-        )}
+        {isSignIn ? <LoginPageFields /> : <RegisterPageFields />}
       </Grid>
       <Grid item xs={4}>
         <LoginPageOptions />
@@ -58,11 +47,7 @@ export default function LoginPage() {
         </GoogleReCaptchaProvider>
       </Grid>
       <Grid item xs={4}>
-        <LoginPageSendButton
-          isAllowedToSignIn={isAllowedToSignIn}
-          email={email}
-          password={password}
-        />
+        <LoginPageSendButton isAllowedToSignIn={isAllowedToSignIn} />
       </Grid>
       <Grid item xs={4}>
         <LoginPageExternalAuthButtons />

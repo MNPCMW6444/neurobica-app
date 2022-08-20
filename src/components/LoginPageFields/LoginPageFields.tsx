@@ -5,13 +5,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 
-interface LoginPageFieldsProps {
-  email: string;
-  password: string;
-  setEmail: Function;
-  setPassword: Function;
-}
-export default function LoginPageFields(props: LoginPageFieldsProps) {
+export default function LoginPageFields() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div>
       <br />
@@ -46,10 +43,10 @@ export default function LoginPageFields(props: LoginPageFieldsProps) {
                 </InputAdornment>
               ),
             }}
-            value={props.email}
+            value={email}
             placeholder="Enter Your Email"
             onChange={(e) => {
-              props.setEmail(e.target.value);
+              setEmail(e.target.value);
             }}
           />
         </div>
@@ -72,10 +69,10 @@ export default function LoginPageFields(props: LoginPageFieldsProps) {
                 </InputAdornment>
               ),
             }}
-            value={props.password}
+            value={password}
             placeholder="Enter Your Password"
             onChange={(e) => {
-              props.setPassword(e.target.value);
+              setPassword(e.target.value);
             }}
           />
         </div>
