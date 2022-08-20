@@ -11,6 +11,9 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { useState } from "react";
+import Axios from "axios";
+
+Axios.defaults.withCredentials = true;
 
 function App() {
   const [value, setValue] = useState<string>();
