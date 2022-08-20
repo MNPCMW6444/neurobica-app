@@ -1,5 +1,5 @@
 import Email from "@mui/icons-material/EmailOutlined";
-import Lock from "@mui/icons-material/LockOutlined";
+import BadgeIcon from "@mui/icons-material/Badge";
 import Locked from "@mui/icons-material/Lock";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -8,6 +8,7 @@ import { InputAdornment } from "@mui/material";
 
 export default function LoginPageSignup() {
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRePassword] = useState("");
 
@@ -52,6 +53,31 @@ export default function LoginPageSignup() {
               }}
             />
           </div>
+          <br />{" "}
+          <div>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={false}
+              type="email"
+              variant="standard"
+              label="Email Address"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Email />
+                  </InputAdornment>
+                ),
+              }}
+              value={email}
+              placeholder="Enter Your Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
           <br />
           <div>
             <TextField
@@ -60,20 +86,20 @@ export default function LoginPageSignup() {
                 width: "40vh",
               }}
               error={false}
-              type="password"
+              type="text"
               variant="standard"
-              label="Password"
+              label="Full Name"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <Lock />
+                    <BadgeIcon />
                   </InputAdornment>
                 ),
               }}
-              value={password}
-              placeholder="Enter Your Password"
+              value={fullName}
+              placeholder="Enter Your Full Name"
               onChange={(e) => {
-                setPassword(e.target.value);
+                setFullName(e.target.value);
               }}
             />
           </div>

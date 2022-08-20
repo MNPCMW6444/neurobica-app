@@ -16,8 +16,34 @@ function App() {
   const [value, setValue] = useState<string>();
 
   return (
-    <>
-      <StatusBar />
+    <div style={{ height: "100vh", width: "100vw" }}>
+      <div
+        style={{
+          height: "5%",
+          width: "100%",
+          position: "fixed",
+          top: "0px",
+        }}
+      >
+        <StatusBar />
+      </div>
+      <div
+        style={{
+          height: "85%",
+          width: "100%",
+          overflow: "scroll",
+        }}
+      >
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/my-account" element={<MyAccount />} />
+            <Route path="/my-brain" element={<MyBrain />} />
+            <Route path="/train-my-brain" element={<TrainMyBrain />} />
+            <Route path="/my-account/auth" element={<LoginPage />} />
+          </Routes>
+        </Router>
+      </div>
       <BottomNavigation
         showLabels
         value={value}
@@ -26,7 +52,7 @@ function App() {
         }}
         sx={{
           backgroundColor: "#F5F5F5",
-          height: "10vh",
+          height: "10%",
           position: "fixed",
           bottom: "0",
           width: "100%",
@@ -47,16 +73,7 @@ function App() {
           icon={<PsychologyOutlinedIcon />}
         />
       </BottomNavigation>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/my-account" element={<MyAccount />} />
-          <Route path="/my-brain" element={<MyBrain />} />
-          <Route path="/train-my-brain" element={<TrainMyBrain />} />
-          <Route path="/my-account/auth" element={<LoginPage />} />
-        </Routes>
-      </Router>
-    </>
+    </div>
   );
 }
 
