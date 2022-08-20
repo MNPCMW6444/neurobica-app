@@ -2,11 +2,11 @@ import "./loginStatus.css";
 import useUser from "../../hooks/useUser";
 
 export default function LoginStatus() {
-  const [user] = useUser("loggedIn", {}, []);
+  const user = useUser();
 
   return (
     <div className="loginStatus">
-      {user._id ? "Welcome back " + user.fullname + "!" : <></>}
+      {user ? "Welcome back " + user.fullname + "!" : <></>}
     </div>
   );
 }
