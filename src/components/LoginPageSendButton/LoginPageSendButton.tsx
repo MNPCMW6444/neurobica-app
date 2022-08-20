@@ -1,9 +1,9 @@
 import Button from "@mui/material/Button";
-import { borderColor } from "@mui/system";
-import React from "react";
 
 export default function LoginPageSendButton(props: {
   isAllowedToSignIn: boolean;
+  emailSetter: Function;
+  passwordSetter: Function;
 }) {
   return (
     <div>
