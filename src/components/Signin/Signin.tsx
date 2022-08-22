@@ -12,6 +12,8 @@ interface SigninProps {
 export default function Signin(props: SigninProps) {
   const { email, password, setLabel } = props;
   useEffect(() => {
+    debugger;
+
     const signIn = async () => {
       try {
         await Axios.post(domain + "user/signin", {
@@ -21,9 +23,12 @@ export default function Signin(props: SigninProps) {
         setLabel("Success!");
       } catch (err: any) {
         Store.removeAllNotifications();
+        debugger;
+
         Store.addNotification({
           title: "Error",
-          message: err.response.data.clientError,
+          message:
+            err.response.data.clientError || err.response.data.serverError,
           type: "danger",
           container: "bottom-center",
           animationIn: ["animate__animated", "animate__fadeIn"],
