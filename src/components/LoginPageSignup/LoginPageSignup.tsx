@@ -13,9 +13,7 @@ export default function LoginPageSignup() {
   const [repassword, setRePassword] = useState("");
 
   return (
-    <>
-      <div>
-        <br />
+  
 
         <Box
           component="form"
@@ -53,32 +51,8 @@ export default function LoginPageSignup() {
               }}
             />
           </div>
-          <br />{" "}
-          <div>
-            <TextField
-              sx={{
-                m: 0,
-                width: "40vh",
-              }}
-              error={false}
-              type="email"
-              variant="standard"
-              label="Email Address"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Email />
-                  </InputAdornment>
-                ),
-              }}
-              value={email}
-              placeholder="Enter Your Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </div>
           <br />
+       
           <div>
             <TextField
               sx={{
@@ -103,7 +77,30 @@ export default function LoginPageSignup() {
               }}
             />
           </div>
-          <br />
+           <br/>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={false}
+              type="password"
+              variant="standard"
+              label="Password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Locked />
+                  </InputAdornment>
+                ),
+              }}
+              value={password}
+              placeholder="Enter Your Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+        <br />
           <div>
             <TextField
               sx={{
@@ -128,8 +125,8 @@ export default function LoginPageSignup() {
               }}
             />
           </div>
+        
         </Box>
-      </div>
-    </>
+    
   );
 }
