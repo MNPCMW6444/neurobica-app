@@ -4,22 +4,41 @@ import Home from "./components/Home/Home";
 import MyAccount from "./components/MyAccount/MyAccount";
 import MyBrain from "./components/MyBrain/MyBrain";
 import TrainMyBrain from "./components/TrainMyBrain/TrainMyBrain";
-import LoginPage from "./components/LoginPage/LoginPage";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Axios from "axios";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
+import domain from "./util/domain";
 
 Axios.defaults.withCredentials = true;
 
 function App() {
   const [value, setValue] = useState<string>();
+  const [status, setStatus] = useState<string>(
+    "Checking server availability..."
+  );
+  useEffect(() => {
+    const checkIfServerIsThere = async () => {
+      try {
+        setStatus(
+          (await Axios.get(domain + "areyoualive")).data.answer === "yes"
+            ? "good"
+            : "bad" + Math.random()
+        );
+      } catch (err) {
+        setStatus("bad" + Math.random());
+      }
+    };
+    status !== "good" && setTimeout(() => checkIfServerIsThere(), 500);
+  }, [status]);
 
-  return (
+  return status === "Checking server availability..." ? (
+    <p>Checking server availability...</p>
+  ) : status === "good" ? (
     <div style={{ height: "100vh", width: "100vw" }}>
       <div
         style={{
@@ -78,6 +97,8 @@ function App() {
         />
       </BottomNavigation>
     </div>
+  ) : (
+    <p>Sorry, yoad make this message</p>
   );
 }
 
