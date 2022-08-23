@@ -23,8 +23,7 @@ export default function Signin(props: SigninProps) {
         Store.removeAllNotifications();
         Store.addNotification({
           title: "Error",
-          message:
-            err.response.data.clientError || err.response.data.serverError,
+          message: err.response.data.clientError,
           type: "danger",
           container: "bottom-center",
           animationIn: ["animate__animated", "animate__fadeIn"],
