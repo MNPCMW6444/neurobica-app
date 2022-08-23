@@ -12,7 +12,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { useState } from "react";
 import Axios from "axios";
-import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 
 Axios.defaults.withCredentials = true;
 
@@ -44,7 +43,7 @@ function App() {
             <Route path="/my-account" element={<MyAccount />} />
             <Route path="/my-brain" element={<MyBrain />} />
             <Route path="/train-my-brain" element={<TrainMyBrain />} />
-            <Route path="/termsvf" element={<TermsAndConditions />} />
+            <Route path="/my-account/auth" element={<LoginPage />} />
           </Routes>
         </Router>
       </div>
