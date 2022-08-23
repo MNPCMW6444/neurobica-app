@@ -23,15 +23,24 @@ function App() {
   );
   useEffect(() => {
     const checkIfServerIsThere = async () => {
-      setStatus(
-        (await Axios.get(domain + "areyoualive")).data.aswer === "yes"
-          ? "good"
-          : "bad" + Math.random()
+      setTimeout(
+        () => status !== "good" && setStatus("bad" + Math.random()),
+        5000
       );
+      try {
+        setStatus(
+          (await Axios.get(domain + "areyoualive")).data.answer === "yes"
+            ? "good"
+            : "bad" + Math.random()
+        );
+      } catch (err) {
+        setStatus("bad" + Math.random());
+      }
     };
+    let prms;
     status === "Checking server availability..."
-      ? checkIfServerIsThere()
-      : setTimeout(() => checkIfServerIsThere(), 5000);
+      ? (prms = checkIfServerIsThere())
+      : setTimeout(() => (prms = checkIfServerIsThere()), 1000);
   }, [status]);
 
   return status === "Checking server availability..." ? (
