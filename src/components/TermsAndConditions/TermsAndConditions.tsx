@@ -1,3 +1,5 @@
+import "./termsAndConditions.css"
+
 
 export default function TermsAndConditions() {
   return (
