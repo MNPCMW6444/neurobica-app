@@ -10,22 +10,29 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Axios from "axios";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
-import useServer from "./hooks/useServer";
+import domain from "./util/domain";
 
 Axios.defaults.withCredentials = true;
 
 function App() {
   const [value, setValue] = useState<string>();
-  const [isFinished, setIsFinished] = useState<boolean>(useServer().isFinished);
-  const [theAnswer, setTheAnswer] = useState<boolean>(useServer().theAnswer);
-
-  setTimeout(() => { if (!isFinished) { setIsFinished(true); setTheAnswer(false); } }, 5000);
+  const [finished, setFinished] = useState<boolean>(false);
+  const [result, setResult] = useState<boolean>(false);
+  useEffect(() => {
+    const checkIfServerIsThere = async () => {
+      const ttt = (await Axios.get(domain + "areyoualive")).data;
+      setResult(ttt.answer === "yes");
+      setFinished(true);
+    }
+    checkIfServerIsThere();
+  }, [])
+  setTimeout(() => { if (!finished) { setFinished(true); setResult(false); } }, 5000);
 
   return (
-    isFinished ? theAnswer ?
+    finished ? result ?
       (<div style={{ height: "100vh", width: "100vw" }
       } >
         <div
