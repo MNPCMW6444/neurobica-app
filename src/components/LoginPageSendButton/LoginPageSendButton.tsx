@@ -6,12 +6,8 @@ export default function LoginPageSendButton(props: {
   isAllowedToSignIn: boolean;
   email: string;
   password: string;
-
-  isSignUp: boolean;
-}
-
-export default function LoginPageSendButton(props: LoginPageSendButtonProps) {
-  const [label, setLabel] = useState<string>("Sign In");
+}) {
+  const [label, setLabel] = useState<string>("Continue");
 
   return (
     <>
