@@ -17,7 +17,9 @@ export default function LoginPage() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordAgain, setPasswordAgain] = useState("");
 
   return (
     <Grid
@@ -42,7 +44,16 @@ export default function LoginPage() {
             setPassword={setPassword}
           />
         ) : (
-          <RegisterPageFields />
+          <RegisterPageFields
+            setEmail={setEmail}
+            setFullName={setFullName}
+            setPassword={setPassword}
+            setPasswordAgain={setPasswordAgain}
+            email={email}
+            fullName={fullName}
+            password={password}
+            passwordAgain={passwordAgain}
+          />
         )}
       </Grid>
       <Grid item xs={4} sx={{ padding: "0vh" }}>
@@ -61,7 +72,9 @@ export default function LoginPage() {
         <LoginPageSendButton
           isAllowedToSignIn={isAllowedToSignIn}
           email={email}
+          fullname={fullName}
           password={password}
+          passwordagain={passwordAgain}
           isSignUp={!isSignIn}
         />
       </Grid>

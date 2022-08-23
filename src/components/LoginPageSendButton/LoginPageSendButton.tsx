@@ -1,11 +1,14 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import Signin from "../Signin/Signin";
+import Signup from "../Signup/Signup";
 
 interface LoginPageSendButtonProps {
   isAllowedToSignIn: boolean;
   email: string;
+  fullname: string;
   password: string;
+  passwordagain: string;
   isSignUp: boolean;
 }
 
@@ -38,10 +41,12 @@ export default function LoginPageSendButton(props: LoginPageSendButtonProps) {
         />
       )}
       {label === "Signing up..." && (
-        <Signin
+        <Signup
           setLabel={setLabel}
           email={props.email}
           password={props.password}
+          fullname={props.fullname}
+          passwordagain={props.passwordagain}
         />
       )}
     </>
