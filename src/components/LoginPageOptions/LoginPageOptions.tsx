@@ -1,6 +1,7 @@
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
+//import { display, fontSize } from "@mui/system";
 import React from "react";
 import "./loginPageOptions.css";
 
@@ -24,7 +25,7 @@ export default function LoginPageOptions() {
             label="Rememmber Me"
             sx={{
               color: "GrayText",
-              width: "25vh",
+              width: "20vh",
             }}
             control={
               <Checkbox
