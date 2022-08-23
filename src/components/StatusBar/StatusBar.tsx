@@ -13,6 +13,8 @@ export default function StatusBar() {
       alignItems="center"
       paddingLeft="1%"
       paddingRight="1%"
+      sx={{ backgroundColor: "white" }}
+
     >
       <Grid item>
         <NeurobicaLogo c={1} />

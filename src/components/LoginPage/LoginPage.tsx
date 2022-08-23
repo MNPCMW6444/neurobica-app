@@ -22,7 +22,7 @@ export default function LoginPage() {
   return (
     <Grid
       container
-      spacing={{ xs: 4, md: 1 }}
+      spacing={{ xs: 1, md: 1 }}
       columns={{ xs: 4, md: 4 }}
       direction="column"
       justifyContent="center"
@@ -45,7 +45,7 @@ export default function LoginPage() {
           <RegisterPageFields />
         )}
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={4} sx={{ padding: "0vh" }}>
         <LoginPageOptions />
       </Grid>
       <Grid item xs={4}>

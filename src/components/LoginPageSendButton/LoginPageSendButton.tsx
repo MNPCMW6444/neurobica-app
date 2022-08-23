@@ -6,6 +6,9 @@ interface LoginPageSendButtonProps {
   isAllowedToSignIn: boolean;
   email: string;
   password: string;
+}) {
+  const [label, setLabel] = useState<string>("Continue");
+=======
   isSignUp: boolean;
 }
 
