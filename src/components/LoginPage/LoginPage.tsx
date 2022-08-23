@@ -62,6 +62,7 @@ export default function LoginPage() {
           isAllowedToSignIn={isAllowedToSignIn}
           email={email}
           password={password}
+          isSignUp={!isSignIn}
         />
       </Grid>
       <Grid item xs={4}>
