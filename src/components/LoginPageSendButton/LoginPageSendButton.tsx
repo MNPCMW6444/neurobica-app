@@ -7,31 +7,5 @@ export default function LoginPageSendButton(props: {
   email: string;
   password: string;
 }) {
-  const [label, setLabel] = useState<string>("Continue");
-
-  return (
-    <>
-      <Button
-        disabled={!props.isAllowedToSignIn}
-        color="inherit"
-        variant="outlined"
-        sx={{
-          color: "#FF8B17",
-          width: "45vh",
-          height: "6vh",
-          borderRadius: "30px",
-        }}
-        onClick={() => setLabel("Signing in...")}
-      >
-        {label}
-      </Button>
-      {label === "Signing in..." && (
-        <Signin
-          setLabel={setLabel}
-          email={props.email}
-          password={props.password}
-        />
-      )}
-    </>
-  );
+  return <></>;
 }
