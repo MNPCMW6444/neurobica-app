@@ -1,12 +1,7 @@
-import LoginPageSendButton from "../LoginPageSendButton/LoginPageSendButton";
-import LoginPageOptions from "../LoginPageOptions/LoginPageOptions";
 import "./loginPageSignInSignUp.css";
 import LoginPageSignInSignUpStyle from "./LoginPageSignInSignUpStyle";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
-import BadgeIcon from "@mui/icons-material/Badge";
-import Locked from "@mui/icons-material/Lock";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import {
   GoogleReCaptcha,
@@ -22,14 +17,13 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Signin from "../Signin/Signin";
+import SignupReq from "../SignupReq/SignupReq";
 
 export default function LoginPage() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
   const [email, setEmail] = useState("");
-  const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordAgain, setPasswordAgain] = useState("");
   const [label, setLabel] = useState<string>("Continue");
 
   const [state, setState] = useState<{
@@ -61,7 +55,7 @@ export default function LoginPage() {
   });
 
   const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setState2({ ...state, [event.target.name]: event.target.checked });
   };
 
   return (
@@ -211,113 +205,6 @@ export default function LoginPage() {
               />
             </div>
             <br />
-
-            <div>
-              <TextField
-                sx={{
-                  m: 0,
-                  width: "40vh",
-                }}
-                error={false}
-                type="text"
-                variant="standard"
-                label="Full Name"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <BadgeIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                value={fullName}
-                placeholder="Enter Your Full Name"
-                onChange={(e) => {
-                  setFullName(e.target.value);
-                }}
-              />
-            </div>
-            <br />
-            <TextField
-              sx={{
-                m: 0,
-                width: "40vh",
-              }}
-              error={false}
-              type="password"
-              variant="standard"
-              label="Password"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Locked />
-                  </InputAdornment>
-                ),
-              }}
-              value={password}
-              placeholder="Enter Your Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <br />
-
-            <div>
-              <TextField
-                sx={{
-                  m: 0,
-                  width: "40vh",
-                }}
-                error={false}
-                type="confirm password"
-                variant="standard"
-                label="Confirm Password"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Locked />
-                    </InputAdornment>
-                  ),
-                }}
-                value={passwordAgain}
-                placeholder="Confirm Your Password"
-                onChange={(e) => {
-                  setPasswordAgain(e.target.value);
-                }}
-              />
-
-              <Grid container>
-                <Grid item>
-                  {" "}
-                  <br />
-                  <FormControlLabel
-                    label={
-                      <div>
-                        <span>I accept the </span>
-                        <Link to={"/termsvf"}>
-                          terms of use and privacy policy
-                        </Link>
-                      </div>
-                    }
-                    sx={{
-                      color: "GrayText",
-                      width: "35vh",
-                    }}
-                    control={
-                      <Checkbox
-                        sx={{
-                          fontSize: "28",
-                        }}
-                        checked={state.checkedB}
-                        onChange={handleChange}
-                        name="checkedB"
-                        color="default"
-                        size="small"
-                      />
-                    }
-                  />
-                </Grid>
-              </Grid>
-            </div>
           </Box>
         )}
       </Grid>
@@ -376,12 +263,17 @@ export default function LoginPage() {
             height: "6vh",
             borderRadius: "30px",
           }}
-          onClick={() => setLabel("Signing in...")}
+          onClick={() =>
+            isSignIn ? setLabel("Signing in...") : setLabel("Signing up...")
+          }
         >
           {label}
         </Button>
         {label === "Signing in..." && (
           <Signin setLabel={setLabel} email={email} password={password} />
+        )}
+        {label === "Signing up..." && (
+          <SignupReq setLabel={setLabel} email={email} />
         )}
       </Grid>
     </Grid>
