@@ -28,7 +28,7 @@ export default function LoginPage() {
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
   const [email, setEmail] = useState("");
   const [key, setKey] = useState("");
-  const [fullName, setFullName] = useState("");
+  const [fullname, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
   const [label, setLabel] = useState<string>(
@@ -233,7 +233,7 @@ export default function LoginPage() {
                     </InputAdornment>
                   ),
                 }}
-                value={fullName}
+                value={fullname}
                 placeholder="Enter Your Full Name"
                 onChange={(e) => {
                   setFullName(e.target.value);
@@ -259,9 +259,7 @@ export default function LoginPage() {
               }}
               value={key}
               placeholder="Enter Your Key (check you email inbox)"
-              onChange={(e) => {
-                setKey(e.target.value);
-              }}
+              onChange={(e) => setKey(e.target.value)}
             />{" "}
             <br />
             <TextField
@@ -465,8 +463,8 @@ export default function LoginPage() {
           <SignupFin
             setLabel={setLabel}
             email={email}
-            key={key}
-            fullName={fullName}
+            secretKey={key}
+            fullname={fullname}
             password={password}
             passwordAgain={passwordAgain}
           />

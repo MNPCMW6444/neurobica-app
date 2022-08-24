@@ -6,22 +6,22 @@ import domain from "../../util/domain";
 interface SignupFinProps {
   setLabel: Function;
   email: string;
-  key: string;
-  fullName: string;
+  secretKey: string;
+  fullname: string;
   password: string;
   passwordAgain: string;
 }
 
 export default function SignupFin(props: SignupFinProps) {
-  const { setLabel, email, key, fullName, password, passwordAgain } = props;
+  const { setLabel, email, secretKey, fullname, password, passwordAgain } =
+    props;
   useEffect(() => {
     const signupFin = async () => {
-      debugger;
       try {
         await Axios.post(domain + "user/signupfin", {
           email,
-          key,
-          fullName,
+          key: secretKey,
+          fullname,
           password,
           passwordAgain,
         });
@@ -45,6 +45,6 @@ export default function SignupFin(props: SignupFinProps) {
       }
     };
     signupFin();
-  }, [email, setLabel]);
+  }, [email, fullname, secretKey, password, passwordAgain, setLabel]);
   return null;
 }
