@@ -26,7 +26,7 @@ export default function SignupFin(props: SignupFinProps) {
           passwordagain,
         });
         setLabel("Success!");
-        setTimeout(() => setLabel("Sign Up"), 1500);
+        setTimeout(() => setLabel("Continiue to Home Page"), 1500);
       } catch (err: any) {
         Store.removeAllNotifications();
         Store.addNotification({

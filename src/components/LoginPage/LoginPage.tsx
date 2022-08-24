@@ -67,7 +67,16 @@ export default function LoginPage() {
     setState2({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const emailValidation = email.includes("+") || !email.includes("@");
+  const emailValidation =
+    email.includes("+") ||
+    !(
+      email.includes("@") &&
+      email.indexOf("@") !== 0 &&
+      email.indexOf("@") !== email.length - 1
+    );
+
+  console.log(email.indexOf("@"));
+  console.log(email.indexOf("@"));
 
   return (
     <Grid
@@ -141,7 +150,11 @@ export default function LoginPage() {
                 label={
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
-                    : !email.includes("@") && !!email
+                    : !(
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
                     ? "Email Address must include '@'"
                     : "Email Address"
                 }
@@ -212,7 +225,11 @@ export default function LoginPage() {
                 label={
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
-                    : !email.includes("@") && !!email
+                    : !(
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
                     ? "Email Address must include '@'"
                     : "Email Address"
                 }
@@ -384,7 +401,11 @@ export default function LoginPage() {
                 label={
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
-                    : !email.includes("@") && !!email
+                    : !(
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
                     ? "Email Address must include '@'"
                     : "Email Address"
                 }
@@ -471,6 +492,7 @@ export default function LoginPage() {
         >
           {label}
         </Button>
+
         {label === "Signing in..." && (
           <Signin setLabel={setLabel} email={email} password={password} />
         )}
@@ -491,6 +513,7 @@ export default function LoginPage() {
             passwordagain={passwordagain}
           />
         )}
+        <br />
         {label === "Continiue to Home Page" && (
           <Link to="\">By clicking in this link</Link>
         )}
