@@ -35,6 +35,7 @@ export default function SignupReq(props: SignupReqProps) {
           insert: "top",
         });
         setLabel("Error!");
+        setTimeout(() => setLabel("Continiue"), 1500);
       }
     };
     signupReq();

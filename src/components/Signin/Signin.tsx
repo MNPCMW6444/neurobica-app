@@ -19,6 +19,7 @@ export default function Signin(props: SigninProps) {
           password,
         });
         setLabel("Success!");
+        setTimeout(() => setLabel("Continiue to Home Page"), 1500);
       } catch (err: any) {
         Store.removeAllNotifications();
         Store.addNotification({
@@ -35,6 +36,7 @@ export default function Signin(props: SigninProps) {
           insert: "top",
         });
         setLabel("Error!");
+        setTimeout(() => setLabel("Sign In"), 1500);
       }
     };
     signIn();
