@@ -66,7 +66,7 @@ export default function LoginPage() {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      paddingTop="5%"
+      paddingTop="5vh"
     >
       <Grid item xs={4}>
         <NeurobicaLogo c={5} />
