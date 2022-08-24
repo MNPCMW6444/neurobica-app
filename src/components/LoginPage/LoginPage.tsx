@@ -469,7 +469,6 @@ export default function LoginPage() {
             passwordagain={passwordagain}
           />
         )}
-        ]{" "}
         {label === "Continiue to Home Page" && (
           <Link to="\">By clicking in this link</Link>
         )}
