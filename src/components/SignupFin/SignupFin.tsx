@@ -3,22 +3,29 @@ import { useEffect } from "react";
 import { Store } from "react-notifications-component";
 import domain from "../../util/domain";
 
-interface SignupReqProps {
+interface SignupFinProps {
   setLabel: Function;
-  setIsAdvanced: Function;
   email: string;
+  key: string;
+  fullName: string;
+  password: string;
+  passwordAgain: string;
 }
 
-export default function SignupReq(props: SignupReqProps) {
-  const { setLabel, setIsAdvanced, email } = props;
+export default function SignupFin(props: SignupFinProps) {
+  const { setLabel, email, key, fullName, password, passwordAgain } = props;
   useEffect(() => {
-    const signupReq = async () => {
+    const signupFin = async () => {
+      debugger;
       try {
-        await Axios.post(domain + "user/signupreq", {
+        await Axios.post(domain + "user/signupfin", {
           email,
+          key,
+          fullName,
+          password,
+          passwordAgain,
         });
-        setLabel("Sign Up");
-        setIsAdvanced(true);
+        setLabel("Success!");
       } catch (err: any) {
         Store.removeAllNotifications();
         Store.addNotification({
@@ -37,7 +44,7 @@ export default function SignupReq(props: SignupReqProps) {
         setLabel("Error!");
       }
     };
-    signupReq();
+    signupFin();
   }, [email, setLabel]);
   return null;
 }

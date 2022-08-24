@@ -12,19 +12,28 @@ import ToggleButton from "@mui/material/ToggleButton";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import InputAdornment from "@mui/material/InputAdornment";
-import { Email, Lock } from "@mui/icons-material";
+import Email from "@mui/icons-material/Email";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Signin from "../Signin/Signin";
 import SignupReq from "../SignupReq/SignupReq";
-
+import Badge from "@mui/icons-material/Badge";
+import Lock from "@mui/icons-material/Lock";
+import { Link } from "react-router-dom";
+import SignupFin from "../SignupFin/SignupFin";
 export default function LoginPage() {
   const [isSignIn, setIsSignIn] = useState(true);
+  const [isAdvanced, setIsAdvanceed] = useState(false);
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
   const [email, setEmail] = useState("");
+  const [key, setKey] = useState("");
+  const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
-  const [label, setLabel] = useState<string>("Continue");
+  const [passwordAgain, setPasswordAgain] = useState("");
+  const [label, setLabel] = useState<string>(
+    isSignIn ? "Sign In" : "Continiue"
+  );
 
   const [state, setState] = useState<{
     checkedA: boolean;
@@ -77,6 +86,7 @@ export default function LoginPage() {
             <ToggleButton
               onClick={() => {
                 setIsSignIn(true);
+                setLabel("Sign In");
               }}
               sx={
                 isSignIn
@@ -90,6 +100,7 @@ export default function LoginPage() {
             <ToggleButton
               onClick={() => {
                 setIsSignIn(false);
+                setLabel("Continue");
               }}
               sx={
                 isSignIn
@@ -165,6 +176,173 @@ export default function LoginPage() {
                   setPassword(e.target.value);
                 }}
               />
+            </div>
+          </Box>
+        ) : isAdvanced ? (
+          <Box
+            component="form"
+            sx={{
+              m: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <div>
+              <TextField
+                sx={{
+                  m: 0,
+                  width: "40vh",
+                }}
+                error={false}
+                type="email"
+                variant="standard"
+                label="Email Address"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Email />
+                    </InputAdornment>
+                  ),
+                }}
+                value={email}
+                placeholder="Enter Your Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+            <br />
+            <div>
+              <TextField
+                sx={{
+                  m: 0,
+                  width: "40vh",
+                }}
+                error={false}
+                type="text"
+                variant="standard"
+                label="Full Name"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Badge />
+                    </InputAdornment>
+                  ),
+                }}
+                value={fullName}
+                placeholder="Enter Your Full Name"
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                }}
+              />
+            </div>
+            <br />
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={false}
+              type="password"
+              variant="standard"
+              label="key"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
+              }}
+              value={key}
+              placeholder="Enter Your Key (check you email inbox)"
+              onChange={(e) => {
+                setKey(e.target.value);
+              }}
+            />{" "}
+            <br />
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={false}
+              type="password"
+              variant="standard"
+              label="Password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
+              }}
+              value={password}
+              placeholder="Enter Your Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <br />
+            <div>
+              <TextField
+                sx={{
+                  m: 0,
+                  width: "40vh",
+                }}
+                error={false}
+                type="password"
+                variant="standard"
+                label="Confirm Password"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Lock />
+                    </InputAdornment>
+                  ),
+                }}
+                value={passwordAgain}
+                placeholder="Confirm Your Password"
+                onChange={(e) => {
+                  setPasswordAgain(e.target.value);
+                }}
+              />
+
+              <Grid container>
+                <Grid item>
+                  {" "}
+                  <br />
+                  <FormControlLabel
+                    label={
+                      <div>
+                        <span>I accept the </span>
+                        <Link to={"/termsvf"}>
+                          terms of use and privacy policy
+                        </Link>
+                      </div>
+                    }
+                    sx={{
+                      color: "GrayText",
+                      width: "35vh",
+                    }}
+                    control={
+                      <Checkbox
+                        sx={{
+                          fontSize: "28",
+                        }}
+                        checked={state.checkedB}
+                        onChange={handleChange}
+                        name="checkedB"
+                        color="default"
+                        size="small"
+                      />
+                    }
+                  />
+                </Grid>
+              </Grid>
             </div>
           </Box>
         ) : (
@@ -264,7 +442,11 @@ export default function LoginPage() {
             borderRadius: "30px",
           }}
           onClick={() =>
-            isSignIn ? setLabel("Signing in...") : setLabel("Signing up...")
+            isSignIn
+              ? setLabel("Signing in...")
+              : isAdvanced
+              ? setLabel("Signing up...")
+              : setLabel("Continueing...")
           }
         >
           {label}
@@ -272,8 +454,22 @@ export default function LoginPage() {
         {label === "Signing in..." && (
           <Signin setLabel={setLabel} email={email} password={password} />
         )}
+        {label === "Continueing..." && (
+          <SignupReq
+            setLabel={setLabel}
+            setIsAdvanced={setIsAdvanceed}
+            email={email}
+          />
+        )}
         {label === "Signing up..." && (
-          <SignupReq setLabel={setLabel} email={email} />
+          <SignupFin
+            setLabel={setLabel}
+            email={email}
+            key={key}
+            fullName={fullName}
+            password={password}
+            passwordAgain={passwordAgain}
+          />
         )}
       </Grid>
     </Grid>
