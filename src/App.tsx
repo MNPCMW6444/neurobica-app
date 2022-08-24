@@ -38,7 +38,7 @@ function App() {
 
   return status === "Checking server availability..." ? (
     <p>Checking server availability...</p>
-  ) : status === "good" ? (
+  ) : status === "good" || process.env.REACT_APP_UI_FLAG === "yes" ? (
     <div style={{ height: "100vh", width: "100vw" }}>
       <div
         style={{
@@ -89,7 +89,7 @@ function App() {
           label="Train"
           icon={<FitnessCenterIcon />}
         />
-        <BottomNavigationAction href="/home" label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction href="/" label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction
           href="/my-brain"
           label="Brain"

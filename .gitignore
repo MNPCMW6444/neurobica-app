@@ -28,3 +28,9 @@ build
 
 # Local Netlify folder
 .netlify
+
+
+
+
+#YOAD:
+.env
