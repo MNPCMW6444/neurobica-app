@@ -67,6 +67,8 @@ export default function LoginPage() {
     setState2({ ...state, [event.target.name]: event.target.checked });
   };
 
+  const emailValidation = email.includes("+") || !email.includes("@");
+
   return (
     <Grid
       container
@@ -132,11 +134,17 @@ export default function LoginPage() {
                   m: 0,
                   width: "40vh",
                 }}
-                error={false}
+                error={emailValidation && !!email}
                 id="sandard-basic"
                 variant="standard"
                 type="email"
-                label="Email Address"
+                label={
+                  email.includes("+")
+                    ? "Email Address mustn't include '+'"
+                    : !email.includes("@") && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -145,7 +153,7 @@ export default function LoginPage() {
                   ),
                 }}
                 value={email}
-                placeholder="Enter Your Email"
+                placeholder="Enter Your Email Address"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -197,10 +205,17 @@ export default function LoginPage() {
                   m: 0,
                   width: "40vh",
                 }}
-                error={false}
-                type="email"
+                error={emailValidation && !!email}
+                id="sandard-basic"
                 variant="standard"
-                label="Email Address"
+                type="email"
+                label={
+                  email.includes("+")
+                    ? "Email Address mustn't include '+'"
+                    : !email.includes("@") && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -209,7 +224,7 @@ export default function LoginPage() {
                   ),
                 }}
                 value={email}
-                placeholder="Enter Your Email"
+                placeholder="Enter Your Email Address"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -362,10 +377,17 @@ export default function LoginPage() {
                   m: 0,
                   width: "40vh",
                 }}
-                error={false}
-                type="email"
+                error={emailValidation && !!email}
+                id="sandard-basic"
                 variant="standard"
-                label="Email Address"
+                type="email"
+                label={
+                  email.includes("+")
+                    ? "Email Address mustn't include '+'"
+                    : !email.includes("@") && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -374,7 +396,7 @@ export default function LoginPage() {
                   ),
                 }}
                 value={email}
-                placeholder="Enter Your Email"
+                placeholder="Enter Your Email Address"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -430,7 +452,7 @@ export default function LoginPage() {
       </Grid>
       <Grid item xs={4}>
         <Button
-          disabled={!isAllowedToSignIn}
+          disabled={!isAllowedToSignIn || emailValidation}
           color="inherit"
           variant="outlined"
           sx={{
