@@ -9,11 +9,11 @@ interface SignupFinProps {
   secretKey: string;
   fullname: string;
   password: string;
-  passwordAgain: string;
+  passwordagain: string;
 }
 
 export default function SignupFin(props: SignupFinProps) {
-  const { setLabel, email, secretKey, fullname, password, passwordAgain } =
+  const { setLabel, email, secretKey, fullname, password, passwordagain } =
     props;
   useEffect(() => {
     const signupFin = async () => {
@@ -23,7 +23,7 @@ export default function SignupFin(props: SignupFinProps) {
           key: secretKey,
           fullname,
           password,
-          passwordAgain,
+          passwordagain,
         });
         setLabel("Success!");
       } catch (err: any) {
@@ -45,6 +45,6 @@ export default function SignupFin(props: SignupFinProps) {
       }
     };
     signupFin();
-  }, [email, fullname, secretKey, password, passwordAgain, setLabel]);
+  }, [email, fullname, secretKey, password, passwordagain, setLabel]);
   return null;
 }

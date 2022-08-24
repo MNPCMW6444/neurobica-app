@@ -30,7 +30,7 @@ export default function LoginPage() {
   const [key, setKey] = useState("");
   const [fullname, setFullName] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordAgain, setPasswordAgain] = useState("");
+  const [passwordagain, setPasswordagain] = useState("");
   const [label, setLabel] = useState<string>(
     isSignIn ? "Sign In" : "Continiue"
   );
@@ -302,10 +302,10 @@ export default function LoginPage() {
                     </InputAdornment>
                   ),
                 }}
-                value={passwordAgain}
+                value={passwordagain}
                 placeholder="Confirm Your Password"
                 onChange={(e) => {
-                  setPasswordAgain(e.target.value);
+                  setPasswordagain(e.target.value);
                 }}
               />
 
@@ -466,7 +466,7 @@ export default function LoginPage() {
             secretKey={key}
             fullname={fullname}
             password={password}
-            passwordAgain={passwordAgain}
+            passwordagain={passwordagain}
           />
         )}
       </Grid>
