@@ -5,18 +5,20 @@ import domain from "../../util/domain";
 
 interface SignupReqProps {
   setLabel: Function;
+  setIsAdvanced: Function;
   email: string;
 }
 
 export default function SignupReq(props: SignupReqProps) {
-  const { email, setLabel } = props;
+  const { setLabel, setIsAdvanced, email } = props;
   useEffect(() => {
     const signupReq = async () => {
       try {
         await Axios.post(domain + "user/signupreq", {
           email,
         });
-        setLabel("Success!");
+        setLabel("Sign Up");
+        setIsAdvanced(true);
       } catch (err: any) {
         Store.removeAllNotifications();
         Store.addNotification({
@@ -33,6 +35,7 @@ export default function SignupReq(props: SignupReqProps) {
           insert: "top",
         });
         setLabel("Error!");
+        setTimeout(() => setLabel("Continiue"), 1500);
       }
     };
     signupReq();

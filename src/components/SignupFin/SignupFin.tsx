@@ -3,20 +3,27 @@ import { useEffect } from "react";
 import { Store } from "react-notifications-component";
 import domain from "../../util/domain";
 
-interface SigninProps {
+interface SignupFinProps {
   setLabel: Function;
   email: string;
+  secretKey: string;
+  fullname: string;
   password: string;
+  passwordagain: string;
 }
 
-export default function Signin(props: SigninProps) {
-  const { email, password, setLabel } = props;
+export default function SignupFin(props: SignupFinProps) {
+  const { setLabel, email, secretKey, fullname, password, passwordagain } =
+    props;
   useEffect(() => {
-    const signIn = async () => {
+    const signupFin = async () => {
       try {
-        await Axios.post(domain + "user/signin", {
+        await Axios.post(domain + "user/signupfin", {
           email,
+          key: secretKey,
+          fullname,
           password,
+          passwordagain,
         });
         setLabel("Success!");
         setTimeout(() => setLabel("Continiue to Home Page"), 1500);
@@ -36,10 +43,10 @@ export default function Signin(props: SigninProps) {
           insert: "top",
         });
         setLabel("Error!");
-        setTimeout(() => setLabel("Sign In"), 1500);
+        setTimeout(() => setLabel("Sign Up"), 1500);
       }
     };
-    signIn();
-  }, [email, password, setLabel]);
+    signupFin();
+  }, [email, fullname, secretKey, password, passwordagain, setLabel]);
   return null;
 }
