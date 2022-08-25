@@ -18,7 +18,7 @@ export default () => {
 
     return (
         <Paper>
-            <Chart data={[{ data: userbrain }]}>
+            {/*  <Chart data={[{ data: userbrain }]}>
                 <ArgumentScale factory={scaleBand} />
                 <ArgumentAxis />
                 <ValueAxis />
@@ -31,7 +31,7 @@ export default () => {
                 <BarSeries valueField="Memory" argumentField="state" name="Memory" />
                 <BarSeries valueField="Memory" argumentField="state" name="Memory" />
                 <Stack />
-            </Chart>
+            </Chart> */}
         </Paper >
     );
 
