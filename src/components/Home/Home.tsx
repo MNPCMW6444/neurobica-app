@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import "../../assets/fonts.css";
+import UserVisualData from "../UserVisualData/UserVisualData";
 
 export default function Home() {
   return (
@@ -14,14 +15,21 @@ export default function Home() {
       paddingTop="3vh"
     >
       <Grid item m={4} xs={4}>
-        <Typography sx={{
-          color: "#FFE1D4", WebkitTextStroke: "1px #FF8B17", textShadow: "2px 2px", fontFamily: "Lucida Console, Verdana, Sans-serif", width: "75vh"
-        }} variant="h4" gutterBottom >
+        <Typography
+          sx={{
+            color: "#FFE1D4",
+            WebkitTextStroke: "1px #FF8B17",
+            textShadow: "2px 2px",
+            fontFamily: "Lucida Console, Verdana, Sans-serif",
+            width: "75vh",
+          }}
+          variant="h4"
+          gutterBottom
+        >
           Hello, Ready To Train?
         </Typography>
       </Grid>
-      <Grid item m={4} xs={4} sx={{}} alignSelf="stretch"
-      >
+      <Grid item m={4} xs={4} sx={{}} alignSelf="stretch">
         <Button
           color="inherit"
           variant="outlined"
@@ -31,11 +39,13 @@ export default function Home() {
             height: "8vh",
             fontSize: "3vh",
             borderRadius: "30px",
-
-          }}>+</Button>
+          }}
+        >
+          +
+        </Button>
       </Grid>
 
-    </Grid >
-
+      <UserVisualData />
+    </Grid>
   );
 }
