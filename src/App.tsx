@@ -39,7 +39,7 @@ function App() {
   return status === "Checking server availability..." ? (
     <p>Checking server availability...</p>
   ) : status === "good" || process.env.REACT_APP_UI_FLAG === "yes" ? (
-    <div style={{ height: "100vh", width: "100vw" }}>
+    <div style={{ backgroundColor: "#FFF6F2" }}>
       <div
         style={{
           height: "5%",
@@ -52,7 +52,7 @@ function App() {
       </div>
       <div
         style={{
-          height: "85%",
+          height: "100vh",
           width: "100%",
           overflow: "scroll",
         }}
