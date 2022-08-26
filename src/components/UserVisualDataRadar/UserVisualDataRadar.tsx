@@ -44,9 +44,9 @@ export default class Example extends PureComponent {
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis angle={30} domain={[0, 100]} />
-          <Radar name="Test1" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-          <Radar name="Test2" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+          <PolarRadiusAxis fontSize={10} angle={90} domain={[0, 100]} />
+          <Radar name="Test1" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.5} />
+          <Radar name="Test2" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.5} />
           <Legend />
         </RadarChart>
       </ResponsiveContainer>

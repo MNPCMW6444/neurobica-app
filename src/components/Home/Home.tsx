@@ -10,7 +10,7 @@ export default function Home() {
     <Grid
       container
       spacing={{ xs: 0, md: 0 }}
-      columns={{ xs: 2, md: 4 }}
+      columns={{ xs: 0, md: 2 }}
       paddingTop="7vh"
       paddingLeft="2vh"
       alignItems="center"
@@ -48,10 +48,10 @@ export default function Home() {
           +
         </Button>
       </Grid>
-      <Grid item m={2} xs={2} sx={{ width: "80vh" }}>
+      <Grid item m={2} xs={2} sx={{ width: "100vh" }}>
         <UserVisualDataRadar />
       </Grid>
-      <Grid item m={2} xs={2} sx={{ width: "80vh" }}>
+      <Grid item m={2} xs={2} sx={{ width: "100vh" }}>
         <UserVisualData />
       </Grid>
     </Grid>
