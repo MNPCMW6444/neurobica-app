@@ -3,7 +3,7 @@ const domains: {
   preProduction: string;
   local: string;
 } = {
-  production: "https://server.neurobica.online/",
+  production: "https://server.neurobica.online:58223/",
   preProduction: "https://neuronbica-admin.herokuapp.com/",
   local: "http://localhost:6444/",
 };
