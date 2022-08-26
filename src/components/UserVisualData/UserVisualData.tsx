@@ -14,56 +14,63 @@ export default function UserVisualData() {
   let data = [
     {
       name: "Attention",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      Test1: 50,
+      Test2: 65,
+      amt: 100,
     },
     {
       name: "Memory",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      Test1: 60,
+      Test2: 75,
+      amt: 100,
     },
     {
       name: "ResponseTime",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      Test1: 70,
+      Test2: 85,
+      amt: 100,
     },
     {
       name: "Flexability",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
+      Test1: 80,
+      Test2: 90,
+      amt: 100,
+    },
+    {
+      name: "Creativity",
+      Test1: 85,
+      Test2: 90,
+      amt: 100,
     },
 
   ];
 
   return (
-    <ResponsiveContainer width="100%" aspect={3} height="100%">
+    <ResponsiveContainer width="100%" aspect={2} height="100vh">
       <LineChart
         width={500}
         height={300}
         data={data}
         margin={{
           top: 0,
-          right: 0,
+          right: 30,
           left: 0,
-          bottom: 0,
+          bottom: 10,
         }}
+
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <XAxis fontSize={10} dataKey="name" />
         <YAxis />
         <Tooltip />
         <Legend />
         <Line
           type="monotone"
-          dataKey="pv"
+          dataKey="Test1"
           stroke="#8884d8"
           activeDot={{ r: 8 }}
         />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="Test2" stroke="#82ca9d" />
       </LineChart>
     </ResponsiveContainer>
   );
