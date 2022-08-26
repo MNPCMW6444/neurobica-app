@@ -13,13 +13,13 @@ export default function Home() {
   return (
     <Grid
       container
-      spacing={{ xs: 0, md: 0 }}
-      columns={{ xs: 1, md: 1 }}
+      spacing={{ xs: 0, md: 0, lg: 2 }}
+      columns={{ xs: 1, md: 1, lg: 1 }}
       paddingTop="7vh"
       alignItems="center"
       justifyContent="center"
     >
-      <Grid item m={2} paddingLeft="3vh" paddingBottom="0vh" xs={2} sx={{ margin: "0" }}>
+      <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
         <Typography
           sx={{
             color: "#FF8B17",
@@ -28,19 +28,19 @@ export default function Home() {
             margin: "0",
 
           }}
-          variant="h4"
+          variant="h5"
           gutterBottom={true}
         >
           Hello, Ready To Train?
         </Typography>
       </Grid>
-      <Grid item m={2} xs={2} paddingLeft="2vh" paddingBottom="5vh" >
+      <Grid item m={2} xs={2} lg={2} paddingBottom="5vh" >
         <Button
           color="inherit"
           variant="outlined"
           sx={{
             color: "#FF8B17",
-            width: "60vh",
+            width: "100%",
             height: "8vh",
             fontSize: "3vh",
             borderRadius: "30px",
@@ -51,7 +51,8 @@ export default function Home() {
           +
         </Button>
       </Grid>
-      <Grid item m={2} paddingLeft="3vh" xs={2} sx={{ margin: "0" }}>
+
+      <Grid item m={2} lg={2} xs={2} paddingLeft="3vh" sx={{ margin: "0" }}>
         <Typography
           sx={{
             color: "black",
@@ -64,18 +65,20 @@ export default function Home() {
           gutterBottom={true}
         >
           Check Your Gains
-          <IconButton sx={{ marginLeft: "30vh" }} aria-label="Gains">
+
+          <IconButton sx={{ left: "40%" }} aria-label="Gains">
             <ArrowForwardIosIcon />
           </IconButton>
         </Typography>
+
       </Grid>
 
 
 
-      <Grid item paddingBottom="5vh" sx={{ width: "80%" }}>
+      <Grid item paddingBottom="5vh" sx={{ width: "100%" }}>
         <UserVisualDataRadar />
       </Grid>
-      <Grid item m={2} paddingLeft="3vh" xs={2} sx={{ margin: "0" }}>
+      <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
         <Typography
           sx={{
             color: "black",
@@ -88,7 +91,7 @@ export default function Home() {
           gutterBottom={true}
         >
           Test Your Brain
-          <IconButton aria-label="Gains" sx={{ marginLeft: "34vh" }}>
+          <IconButton aria-label="Gains" sx={{ left: "45%" }}>
             <ArrowForwardIosIcon />
           </IconButton>
         </Typography>
@@ -96,13 +99,13 @@ export default function Home() {
 
       </Grid>
 
-      <Grid item m={2} xs={2} paddingBottom="10vh" >
+      <Grid item m={2} lg={2} xs={2} paddingBottom="10vh" >
         <Button
           color="inherit"
           variant="outlined"
           sx={{
             color: "#FF8B17",
-            width: "65vh",
+            width: "100%",
             height: "5vh",
             fontSize: "2vh",
             borderRadius: "30px",
@@ -116,6 +119,6 @@ export default function Home() {
       {/* <Grid item sx={{ width: "100vh" }}>
         <UserVisualData />
       </Grid> */}
-    </Grid>
+    </Grid >
   );
 }
