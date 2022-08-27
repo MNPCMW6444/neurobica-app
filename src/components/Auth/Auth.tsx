@@ -1,5 +1,5 @@
-import "./loginPageSignInSignUp.css";
-import LoginPageSignInSignUpStyle from "./LoginPageSignInSignUpStyle";
+import "./authStyle.css";
+import LoginPageSignInSignUpStyle from "./authStyle";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
@@ -490,11 +490,15 @@ export default function LoginPage() {
               : setLabel("Continueing...")
           }
         >
-          {label}
+          {label === "Continiue to Home Page" ? (
+            <Link to="../">By clicking in this link</Link>
+          ) : (
+            label
+          )}
         </Button>
 
         {label === "Signing in..." && (
-          <Signin setLabel={setLabel} email={email} password={password} />
+          <Signin email={email} password={password} setLabel={setLabel} />
         )}
         {label === "Continueing..." && (
           <SignupReq
@@ -514,9 +518,6 @@ export default function LoginPage() {
           />
         )}
         <br />
-        {label === "Continiue to Home Page" && (
-          <Link to="\">By clicking in this link</Link>
-        )}
       </Grid>
     </Grid>
   );

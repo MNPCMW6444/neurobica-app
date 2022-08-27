@@ -15,9 +15,7 @@ const useSignUp = async (props: UseSignInProps): Promise<string> => {
         password: props.password,
       })
     ).data;
-  } catch (err) {
-    debugger;
-  }
+  } catch (err) {}
   return res;
 };
 

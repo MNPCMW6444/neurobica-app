@@ -13,21 +13,10 @@ export default function StatusBar() {
       alignItems="center"
       paddingLeft="1%"
       paddingRight="1%"
-
     >
+      <Grid item></Grid>
       <Grid item>
-      </Grid>
-      <Grid item>
-        <Button
-          variant="outlined"
-          href="../../my-account"
-          sx={{
-            color: "GrayText",
-            border: "HighlightText",
-          }}
-        >
-          Login
-        </Button>
+        <LoginStatus />
       </Grid>
     </Grid>
   );

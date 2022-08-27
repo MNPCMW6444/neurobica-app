@@ -2,14 +2,24 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import "../../assets/fonts.css";
-import UserVisualData from "../UserVisualData/UserVisualData";
 import UserVisualDataRadar from "../UserVisualDataRadar/UserVisualDataRadar";
-import Mascot from "../../assets/MascotWeights.png"
-import { useState } from "react";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import IconButton from '@mui/material/IconButton';
+import { useEffect, useState } from "react";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import IconButton from "@mui/material/IconButton";
+import Axios from "axios";
+import domain from "../../util/domain";
 
 export default function Home() {
+  const [numberOfTimes, setNumberOfTimes] = useState<number>(0);
+
+  useEffect(() => {
+    const getFromServer = async () =>
+      setNumberOfTimes(
+        (await Axios.get(domain + "howmanytimeshehadbeenhere")).data
+      );
+    getFromServer();
+  }, []);
+
   return (
     <Grid
       container
@@ -19,6 +29,8 @@ export default function Home() {
       alignItems="center"
       justifyContent="center"
     >
+      {numberOfTimes > 1 ? <p>asd</p> : <p>ewrgwef</p>}
+
       <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
         <Typography
           sx={{
@@ -26,7 +38,6 @@ export default function Home() {
             textShadow: "1px 1px",
             fontFamily: "arial, Verdana, Sans-serif",
             margin: "0",
-
           }}
           variant="h5"
           gutterBottom={true}
@@ -34,7 +45,7 @@ export default function Home() {
           Hello, Ready To Train?
         </Typography>
       </Grid>
-      <Grid item m={2} xs={2} lg={2} paddingBottom="5vh" >
+      <Grid item m={2} xs={2} lg={2} paddingBottom="5vh">
         <Button
           color="inherit"
           variant="outlined"
@@ -45,7 +56,6 @@ export default function Home() {
             fontSize: "3vh",
             borderRadius: "30px",
             margin: "0",
-
           }}
         >
           +
@@ -59,21 +69,16 @@ export default function Home() {
             fontWeight: "bold",
             fontFamily: "arial, Verdana, Sans-serif",
             margin: "0",
-
           }}
           variant="h6"
           gutterBottom={true}
         >
           Check Your Gains
-
           <IconButton sx={{ left: "40%" }} aria-label="Gains">
             <ArrowForwardIosIcon />
           </IconButton>
         </Typography>
-
       </Grid>
-
-
 
       <Grid item paddingBottom="5vh" sx={{ width: "100%" }}>
         <UserVisualDataRadar />
@@ -85,7 +90,6 @@ export default function Home() {
             fontWeight: "bold",
             fontFamily: "arial, Verdana, Sans-serif",
             margin: "0",
-
           }}
           variant="h6"
           gutterBottom={true}
@@ -95,11 +99,9 @@ export default function Home() {
             <ArrowForwardIosIcon />
           </IconButton>
         </Typography>
-
-
       </Grid>
 
-      <Grid item m={2} lg={2} xs={2} paddingBottom="10vh" >
+      <Grid item m={2} lg={2} xs={2} paddingBottom="10vh">
         <Button
           color="inherit"
           variant="outlined"
@@ -110,7 +112,6 @@ export default function Home() {
             fontSize: "2vh",
             borderRadius: "30px",
             margin: "0",
-
           }}
         >
           Quick Start
@@ -119,6 +120,6 @@ export default function Home() {
       {/* <Grid item sx={{ width: "100vh" }}>
         <UserVisualData />
       </Grid> */}
-    </Grid >
+    </Grid>
   );
 }
