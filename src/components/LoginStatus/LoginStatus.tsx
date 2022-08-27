@@ -1,6 +1,5 @@
 import "./loginStatus.css";
-import { useState } from "react";
-import SignedIn from "../SignedIn/SignedIn";
+import { useContext, useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -8,9 +7,9 @@ import Fade from "@mui/material/Fade";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Signout from "../Signout/Signout";
 import React from "react";
+import UserContext from "../../context/UserContext";
 
 export default function LoginStatus() {
-  const [user, setUser] = useState<any>();
   const [signOut, setSignOut] = useState<boolean>(false);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -21,6 +20,10 @@ export default function LoginStatus() {
   const handleClose = () => {
     setSignOut(true);
   };
+
+  const { user, getUser } = useContext(UserContext);
+
+  getUser();
 
   return (
     <div className="loginStatus">
@@ -62,8 +65,7 @@ export default function LoginStatus() {
           Login
         </Button>
       )}
-      {/*  <SignedIn setUser={setUser} /> */}
-      {signOut && <Signout setUser={setUser} />}
+      {signOut && <Signout />}
     </div>
   );
 }

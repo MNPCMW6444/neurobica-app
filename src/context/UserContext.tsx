@@ -1,14 +1,14 @@
-/* import Axios from "axios";
-import React, { , useEffect, useState } from "react";
+import Axios from "axios";
+import React, { createContext, useEffect, useState } from "react";
 import domain from "../util/domain";
 
-const UserContext = React.createContext(null);
+const UserContext = createContext<any>(undefined);
 
-function UserContextProvider(props) {
+function UserContextProvider(props: any) {
   const [user, setUser] = useState(undefined);
 
   async function getUser() {
-    const userRes = await Axios.get(`${domain}/user/loggedIn`);
+    const userRes = await Axios.get(domain + "user/signedin");
     setUser(userRes.data);
   }
 
@@ -25,10 +25,3 @@ function UserContextProvider(props) {
 
 export default UserContext;
 export { UserContextProvider };
- */
-
-import React from "react";
-
-export default function UserContext() {
-  return <div>UserContext</div>;
-}

@@ -1,22 +1,22 @@
 import Axios from "axios";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { serialize } from "v8";
+import UserContext from "../../context/UserContext";
 import domain from "../../util/domain";
 
-interface SignoutProps {
-  setUser: Function;
-}
+export default function Signout() {
+  const { getUser, user } = useContext(UserContext);
 
-export default function Signout(props: SignoutProps) {
   useEffect(() => {
-    const Signout = async () => {
+    const signout = async () => {
       try {
-        props.setUser((await Axios.get(domain + "user/signout", {})).data);
-        debugger;
-      } catch (err: any) {
-        debugger;
-      }
+        await Axios.get(domain + "user/signout", {});
+        getUser();
+        console.log(user);
+        //  debugger;
+      } catch (err: any) {}
     };
-    Signout();
+    signout();
   }, []);
   return null;
 }

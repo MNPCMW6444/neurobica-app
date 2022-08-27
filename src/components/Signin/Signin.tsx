@@ -1,9 +1,9 @@
 import Axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Store } from "react-notifications-component";
 import domain from "../../util/domain";
 import { useNavigate } from "react-router-dom";
-import SignedIn from "../SignedIn/SignedIn";
+import UserContext from "../../context/UserContext";
 
 interface SigninProps {
   setLabel: Function;
@@ -13,8 +13,7 @@ interface SigninProps {
 
 export default function Signin(props: SigninProps) {
   let navigate = useNavigate();
-
-  const [done, setDone] = useState<boolean>(false);
+  const { getUser } = useContext(UserContext);
 
   const { email, password, setLabel } = props;
   useEffect(() => {
@@ -25,7 +24,10 @@ export default function Signin(props: SigninProps) {
           password,
         });
         setLabel("Success!");
-        setDone(true);
+
+        getUser();
+
+        navigate("../");
       } catch (err: any) {
         Store.removeAllNotifications();
         Store.addNotification({
@@ -47,5 +49,5 @@ export default function Signin(props: SigninProps) {
     };
     signIn();
   }, [email, password, setLabel]);
-  return done && <SignedIn />;
+  return null;
 }

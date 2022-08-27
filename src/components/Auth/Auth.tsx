@@ -497,9 +497,9 @@ export default function LoginPage() {
           )}
         </Button>
 
-        {
-          label === "Signing in..." && true //<Signin setLabel={setLabel} email={email} password={password} />
-        }
+        {label === "Signing in..." && (
+          <Signin email={email} password={password} setLabel={setLabel} />
+        )}
         {label === "Continueing..." && (
           <SignupReq
             setLabel={setLabel}
