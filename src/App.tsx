@@ -105,7 +105,7 @@ function App() {
         </p>
       </Grid>
       <Grid item >
-        <img src="src/assets/spongebob-patrick.gif" alt="Brain Breakdown GIF"></img>
+        <img src="assets/spongebob-patrick.gif" alt="Brain Breakdown GIF"></img>
       </Grid>
     </Grid>
   );
