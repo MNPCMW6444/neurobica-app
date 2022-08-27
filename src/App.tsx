@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 import domain from "./util/domain";
+import Grid from "@mui/material/Grid";
 
 Axios.defaults.withCredentials = true;
 
@@ -98,7 +99,16 @@ function App() {
       </BottomNavigation>
     </div>
   ) : (
-    <p>Sorry, yoad make this message</p>
+    <Grid container alignItems="center" justifyContent="center" paddingTop="5vh" direction="column">
+      <Grid item>
+        <p>Connction Failed.
+          Check your Internrt Connection, If You Still Can't Connect Our servers, Please Contact Our Technical Support Team.
+        </p>
+      </Grid>
+      <Grid item>
+        <img src="src/assets/spongebob-patrick.gif"></img>
+      </Grid>
+    </Grid>
   );
 }
 
