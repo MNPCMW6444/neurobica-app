@@ -105,8 +105,8 @@ function App() {
           Check your Internrt Connection, If You Still Can't Connect Our servers, Please Contact Our Technical Support Team.
         </p>
       </Grid>
-      <Grid item>
-        <img src="src/assets/spongebob-patrick.gif"></img>
+      <Grid item >
+        <img src="src/assets/spongebob-patrick.gif" alt="Brain Breakdown GIF"></img>
       </Grid>
     </Grid>
   );
