@@ -101,8 +101,7 @@ function App() {
   ) : (
     <Grid container alignItems="center" justifyContent="center" paddingTop="5vh" direction="column">
       <Grid item>
-        <p>Connction Failed.
-          Check your Internrt Connection, If You Still Can't Connect Our servers, Please Contact Our Technical Support Team.
+        <p>Connction Failed. Check Your Internert Connection, If You Still Can't Connect To Our servers, Please Contact Our Technical Support Team.
         </p>
       </Grid>
       <Grid item >
