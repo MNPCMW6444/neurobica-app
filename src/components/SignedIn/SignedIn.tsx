@@ -1,17 +1,21 @@
 import Axios from "axios";
-import { useEffect } from "react";
+import React from "react";
+import { useContext, useEffect } from "react";
 import domain from "../../util/domain";
 
-interface SignedInProps {
-  setUser: Function;
-}
+const UserContext = React.createContext(undefined);
 
-export default function SignedIn(props: SignedInProps) {
+export default function SignedIn() {
+  const user = useContext(UserContext);
+
   useEffect(() => {
     const signedIn = async () => {
       try {
-        props.setUser((await Axios.get(domain + "user/signedin", {})).data);
-      } catch (err: any) {}
+        /*         props.setUser((await Axios.get(domain + "user/signedin", {})).data);
+         */ debugger;
+      } catch (err: any) {
+        debugger;
+      }
     };
     signedIn();
   }, []);

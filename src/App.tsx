@@ -9,11 +9,13 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 import domain from "./util/domain";
 import Grid from "@mui/material/Grid";
+import React from "react";
+import brainGif from "./assets/spongebob-patrick.gif";
 
 Axios.defaults.withCredentials = true;
 
@@ -99,13 +101,21 @@ function App() {
       </BottomNavigation>
     </div>
   ) : (
-    <Grid container alignItems="center" justifyContent="center" paddingTop="5vh" direction="column">
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      paddingTop="5vh"
+      direction="column"
+    >
       <Grid item>
-        <p>Connction Failed. Check Your Internert Connection, If You Still Can't Connect To Our servers, Please Contact Our Technical Support Team.
+        <p>
+          Connction Failed. Check Your Internert Connection, If You Still Can't
+          Connect To Our servers, Please Contact Our Technical Support Team.
         </p>
       </Grid>
-      <Grid item >
-        <img src="assets/spongebob-patrick.gif" alt="Brain Breakdown GIF"></img>
+      <Grid item>
+        <img src={brainGif} alt="Brain Breakdown GIF"></img>
       </Grid>
     </Grid>
   );

@@ -1,5 +1,5 @@
 import useUser from "../../hooks/useUser";
-import LoginPage from "../LoginPage/LoginPage";
+import LoginPage from "../Auth/Auth";
 
 export default function MyAccount() {
   const user = useUser();
