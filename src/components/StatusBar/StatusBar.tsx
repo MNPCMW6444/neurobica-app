@@ -1,7 +1,5 @@
-import Button from "@mui/material/Button";
 import LoginStatus from "../LoginStatus/LoginStatus";
 import "./statusBar.css";
-import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import Grid from "@mui/material/Grid";
 
 export default function StatusBar() {

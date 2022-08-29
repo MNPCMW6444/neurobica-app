@@ -21,9 +21,7 @@ export default function LoginStatus() {
     setSignOut(true);
   };
 
-  const { user, getUser } = useContext(UserContext);
-
-  getUser();
+  const { user } = useContext(UserContext);
 
   return (
     <div className="loginStatus">
