@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "npm run installall & npm run dev",
-    "dev": "pm2 stop all & cd server & pm2 start npm -- start & cd ../ & react-scripts start",
+    "dev": "pm2 stop all & cd server & pm2 start npm -- start & cd ../ & PORT=6556 react-scripts start",
     "installall": "npm install & cd server & npm install & cd ../",
     "build": "react-scripts build",
     "test": "react-scripts test",
