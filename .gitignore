@@ -33,7 +33,7 @@ build
 
 
 #YOAD:
-.env
 
 /server/node_modules
 /server/.DS_Store
+/.env
