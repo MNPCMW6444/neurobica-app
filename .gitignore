@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 #Micahael added build:
-build
+/build
 
 # Editor directories and files
 .vscode/*
@@ -32,8 +32,10 @@ build
 
 
 
-#YOAD:
+#MICHAEL:
 
 /server/node_modules
 /server/.DS_Store
 /.env
+/package-lock.json
+/server/package-lock.json
