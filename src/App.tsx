@@ -9,12 +9,11 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Axios from "axios";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 import domain from "./util/domain";
 import Grid from "@mui/material/Grid";
-import React from "react";
 import brainGif from "./assets/spongebob-patrick.gif";
 import { UserContextProvider } from "./context/UserContext";
 
@@ -45,16 +44,6 @@ function App() {
   ) : status === "good" || process.env.REACT_APP_UI_FLAG === "yes" ? (
     <UserContextProvider>
       <div style={{ backgroundColor: "#FFF6F2" }}>
-        <div
-          style={{
-            height: "5%",
-            width: "100%",
-            position: "fixed",
-            top: "0px",
-          }}
-        >
-          <StatusBar />
-        </div>
         <div
           style={{
             height: "100vh",

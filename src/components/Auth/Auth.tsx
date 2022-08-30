@@ -22,7 +22,7 @@ import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import { Link } from "react-router-dom";
 import SignupFin from "../SignupFin/SignupFin";
-export default function LoginPage() {
+export default function Auth() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAdvanced, setIsAdvanceed] = useState(false);
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);

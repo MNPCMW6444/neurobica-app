@@ -55,17 +55,8 @@ app.use((0, heroku_ssl_redirect_1.default)());
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
     origin: process.env.NODE_ENV === "development"
-        ? [
-            "http://localhost:3000",
-            "https://app.neurobica.online",
-            "https://yoad-main-ui.flexboxtorchy.com",
-            "https://michael-app.flexboxtorchy.com",
-        ]
-        : [
-            "https://app.neurobica.online",
-            "https://yoad-main-ui.flexboxtorchy.com",
-            "https://michael-app.flexboxtorchy.com",
-        ],
+        ? ["http://localhost:6556"]
+        : ["https://app.neurobica.online"],
     credentials: true,
 }));
 app.use((0, cookie_parser_1.default)());

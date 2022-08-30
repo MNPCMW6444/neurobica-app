@@ -25,7 +25,7 @@ export default function Signin(props: SigninProps) {
         });
         setLabel("Success!");
 
-        getUser();
+        await getUser();
 
         navigate("../");
       } catch (err: any) {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StatusBar from "../StatusBar/StatusBar";
 //import GoogleLogin from "@leecheuk/react-google-login";
 
 export default function TrainMyBrain() {
@@ -14,6 +15,16 @@ export default function TrainMyBrain() {
         onFailure={() => setAwe("Falute")}
         cookiePolicy={"single_host_origin"}
       /> */}
+      <div
+        style={{
+          height: "5%",
+          width: "100%",
+          position: "fixed",
+          top: "0px",
+        }}
+      >
+        <StatusBar />
+      </div>
       <p>{awe}</p>
     </>
   );

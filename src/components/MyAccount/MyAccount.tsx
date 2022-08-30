@@ -1,10 +1,25 @@
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 import LoginPage from "../Auth/Auth";
+import StatusBar from "../StatusBar/StatusBar";
 
 export default function MyAccount() {
-  const { user, getUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-  getUser();
-  return user ? <div>Hi {user.fullname + "!!!"}</div> : <LoginPage />;
+  return (
+    <>
+      {" "}
+      <div
+        style={{
+          height: "5%",
+          width: "100%",
+          position: "fixed",
+          top: "0px",
+        }}
+      >
+        <StatusBar />
+      </div>
+      {user ? <div>Hi {user.fullname + "!!!"}</div> : <LoginPage />}
+    </>
+  );
 }

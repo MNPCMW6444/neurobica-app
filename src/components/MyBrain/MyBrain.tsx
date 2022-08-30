@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StatusBar from "../StatusBar/StatusBar";
 
 export default function MyBrain() {
   const [heightTop, setHeightTop] = useState(50);
@@ -6,6 +7,16 @@ export default function MyBrain() {
 
   return (
     <div>
+      <div
+        style={{
+          height: "5%",
+          width: "100%",
+          position: "fixed",
+          top: "0px",
+        }}
+      >
+        <StatusBar />
+      </div>
       <button
         style={{
           height: heightTop + "vh",
