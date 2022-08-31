@@ -12,11 +12,8 @@ export default function Signout() {
   useEffect(() => {
     const signout = async () => {
       try {
-        debugger;
-
         await Axios.get(domain + "user/signout", {});
         await getUser();
-        debugger;
         navigate("/my-account");
       } catch (err: any) {}
     };

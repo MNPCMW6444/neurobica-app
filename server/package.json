@@ -4,12 +4,9 @@
   "description": "Neurobica App Main Server",
   "main": "dist/index.js",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
-    "prestart": "npm run build",
     "start": "ts-node index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch '**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node index.ts'"
+    "dev": "nodemon -e ts --exec \"npm run build\""
   },
   "repository": {
     "type": "git",
@@ -38,8 +35,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.1",
     "ts-node": "^10.9.1",
-    "tslint": "^6.1.3",
     "winston": "^3.8.1",
     "winston-mongodb": "^5.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

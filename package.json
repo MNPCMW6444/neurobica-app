@@ -24,9 +24,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run installall & npm run dev",
-    "dev": "pm2 stop all & cd server & pm2 start npm -- start & cd ../ & PORT=6556 react-scripts start",
-    "installall": "npm install & cd server & npm install & cd ../",
+    "preinstallall": "cd server & npm install",
+    "installall": "npm install",
+    "prestart": "npm run installall",
+    "start": "npm run devall",
+    "predevall": "npm run stopfirst",
+    "prestopfirst": "pm2 stop all",
+    "stopfirst": "cd server & pm2 start npm -- start",
+    "devall": "PORT=6556 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
