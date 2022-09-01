@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
-const userTests = new mongoose.Schema(
+const test = new mongoose.Schema(
   {
-    User: { type: Number, required: true, unique: true },
-    userTestTutorial: { type: Boolean, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, required: true },
     attentionScore: {
       type: Number,
       required: true,
@@ -20,14 +19,10 @@ const userTests = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    testScore: {
-      type: Number,
-      required: true,
-    },
   },
   {
     timestamps: true,
   }
 );
 
-export default mongoose.model("user", userTests);
+export default mongoose.model("test", test);
