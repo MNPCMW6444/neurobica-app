@@ -151,12 +151,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                      ? "Email Address must include '@'"
+                      : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -226,12 +226,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                      ? "Email Address must include '@'"
+                      : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -402,12 +402,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                      ? "Email Address must include '@'"
+                      : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -486,8 +486,8 @@ export default function Auth() {
             isSignIn
               ? setLabel("Signing in...")
               : isAdvanced
-              ? setLabel("Signing up...")
-              : setLabel("Continueing...")
+                ? setLabel("Signing up...")
+                : setLabel("Continueing...")
           }
         >
           {label === "Continiue to Home Page" ? (
