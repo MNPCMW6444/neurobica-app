@@ -25,7 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "preinstallall": "cd server & npm install",
+    "preinstallall": "cd server && npm install",
     "installall": "npm install",
     "prestart": "npm run installall",
     "start": "cd server && npm start & react-scripts start",
