@@ -29,7 +29,7 @@
     "preinstallall": "cd server && npm install",
     "installall": "npm install",
     "prestart": "npm run installall",
-    "start": "cd server && npm start & PORT=6556 react-scripts start",
+    "start": "cd server && npm start & react-scripts start",
     "predevall": "npm run stopfirst",
     "prestopfirst": "pm2 stop all",
     "stopfirst": "cd server & pm2 start npm -- start",
