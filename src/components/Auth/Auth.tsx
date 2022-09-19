@@ -3,6 +3,7 @@ import LoginPageSignInSignUpStyle from "./authStyle";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
+import { passwordStrength } from 'check-password-strength'
 import {
   GoogleReCaptcha,
   GoogleReCaptchaProvider,
@@ -78,6 +79,10 @@ export default function Auth() {
   console.log(email.indexOf("@"));
   console.log(email.indexOf("@"));
 
+  const passwordValidation =
+    passwordStrength(password).value === "Strong" ||
+    passwordStrength(password).value === "Medium"
+
   return (
     <Grid
       container
@@ -151,12 +156,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                      ? "Email Address must include '@'"
+                      : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -179,11 +184,15 @@ export default function Auth() {
                   m: 0,
                   width: "40vh",
                 }}
-                error={false}
+                error={!passwordValidation}
                 id="tandard-basic"
                 variant="standard"
                 type="password"
-                label="Password"
+                label={
+                  passwordValidation == false
+                    ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+                    : "Password"
+                }
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -226,12 +235,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                      ? "Email Address must include '@'"
+                      : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -278,7 +287,7 @@ export default function Auth() {
                 m: 0,
                 width: "40vh",
               }}
-              error={false}
+              error={!passwordValidation}
               type="password"
               variant="standard"
               label="key"
@@ -302,7 +311,11 @@ export default function Auth() {
               error={false}
               type="password"
               variant="standard"
-              label="Password"
+              label={
+                passwordValidation == false
+                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+                  : "Password"
+              }
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -323,7 +336,7 @@ export default function Auth() {
                   m: 0,
                   width: "40vh",
                 }}
-                error={false}
+                error={password != passwordagain}
                 type="password"
                 variant="standard"
                 label="Confirm Password"
@@ -402,12 +415,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                      ? "Email Address must include '@'"
+                      : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -486,8 +499,8 @@ export default function Auth() {
             isSignIn
               ? setLabel("Signing in...")
               : isAdvanced
-              ? setLabel("Signing up...")
-              : setLabel("Continueing...")
+                ? setLabel("Signing up...")
+                : setLabel("Continueing...")
           }
         >
           {label === "Continiue to Home Page" ? (
