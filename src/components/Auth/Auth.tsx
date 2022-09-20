@@ -3,7 +3,7 @@ import LoginPageSignInSignUpStyle from "./authStyle";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
-import { passwordStrength } from 'check-password-strength'
+import { passwordStrength } from "check-password-strength";
 import {
   GoogleReCaptcha,
   GoogleReCaptchaProvider,
@@ -81,7 +81,7 @@ export default function Auth() {
 
   const passwordValidation =
     passwordStrength(password).value === "Strong" ||
-    passwordStrength(password).value === "Medium"
+    passwordStrength(password).value === "Medium";
 
   return (
     <Grid
@@ -97,7 +97,7 @@ export default function Auth() {
         <NeurobicaLogo c={5} />
       </Grid>
       <Grid item xs={4}>
-        <div className="loginPageSignInSignUp">
+        <Box className="loginPageSignInSignUp">
           <ToggleButtonGroup value={isSignIn}>
             <ToggleButton
               onClick={() => {
@@ -128,7 +128,7 @@ export default function Auth() {
               Sign Up
             </ToggleButton>
           </ToggleButtonGroup>
-        </div>
+        </Box>
         {isSignIn ? (
           <Box
             component="form"
@@ -142,7 +142,7 @@ export default function Auth() {
             noValidate
             autoComplete="off"
           >
-            <div>
+            <Box>
               <TextField
                 sx={{
                   m: 0,
@@ -156,12 +156,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -176,9 +176,9 @@ export default function Auth() {
                   setEmail(e.target.value);
                 }}
               />
-            </div>
-            <br />
-            <div>
+            </Box>
+
+            <Box>
               <TextField
                 sx={{
                   m: 0,
@@ -189,7 +189,7 @@ export default function Auth() {
                 variant="standard"
                 type="password"
                 label={
-                  passwordValidation == false
+                  passwordValidation === false
                     ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
                     : "Password"
                 }
@@ -206,7 +206,7 @@ export default function Auth() {
                   setPassword(e.target.value);
                 }}
               />
-            </div>
+            </Box>
           </Box>
         ) : isAdvanced ? (
           <Box
@@ -221,7 +221,7 @@ export default function Auth() {
             noValidate
             autoComplete="off"
           >
-            <div>
+            <Box>
               <TextField
                 sx={{
                   m: 0,
@@ -235,12 +235,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -255,9 +255,8 @@ export default function Auth() {
                   setEmail(e.target.value);
                 }}
               />
-            </div>
-            <br />
-            <div>
+            </Box>
+            <Box>
               <TextField
                 sx={{
                   m: 0,
@@ -280,8 +279,7 @@ export default function Auth() {
                   setFullName(e.target.value);
                 }}
               />
-            </div>
-            <br />
+            </Box>
             <TextField
               sx={{
                 m: 0,
@@ -302,7 +300,6 @@ export default function Auth() {
               placeholder="Enter Your Key (check you email inbox)"
               onChange={(e) => setKey(e.target.value)}
             />{" "}
-            <br />
             <TextField
               sx={{
                 m: 0,
@@ -312,7 +309,7 @@ export default function Auth() {
               type="password"
               variant="standard"
               label={
-                passwordValidation == false
+                passwordValidation === false
                   ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
                   : "Password"
               }
@@ -329,14 +326,13 @@ export default function Auth() {
                 setPassword(e.target.value);
               }}
             />
-            <br />
-            <div>
+            <Box>
               <TextField
                 sx={{
                   m: 0,
                   width: "40vh",
                 }}
-                error={password != passwordagain}
+                error={password !== passwordagain}
                 type="password"
                 variant="standard"
                 label="Confirm Password"
@@ -357,15 +353,14 @@ export default function Auth() {
               <Grid container>
                 <Grid item>
                   {" "}
-                  <br />
                   <FormControlLabel
                     label={
-                      <div>
+                      <Box>
                         <span>I accept the </span>
                         <Link to={"/termsvf"}>
                           terms of use and privacy policy
                         </Link>
-                      </div>
+                      </Box>
                     }
                     sx={{
                       color: "GrayText",
@@ -386,7 +381,7 @@ export default function Auth() {
                   />
                 </Grid>
               </Grid>
-            </div>
+            </Box>
           </Box>
         ) : (
           <Box
@@ -401,7 +396,7 @@ export default function Auth() {
             noValidate
             autoComplete="off"
           >
-            <div>
+            <Box>
               <TextField
                 sx={{
                   m: 0,
@@ -415,12 +410,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -435,8 +430,7 @@ export default function Auth() {
                   setEmail(e.target.value);
                 }}
               />
-            </div>
-            <br />
+            </Box>
           </Box>
         )}
       </Grid>
@@ -464,14 +458,14 @@ export default function Auth() {
             />
           </Grid>
           <Grid item alignSelf="center">
-            <div className="text">
+            <Box className="text">
               <a
                 href="src/components/ForgotPassword/ForgotPassword"
                 style={{ color: "#FF8B17" }}
               >
                 Trouble Logging In?
               </a>
-            </div>
+            </Box>
           </Grid>
         </Grid>
       </Grid>
@@ -499,8 +493,8 @@ export default function Auth() {
             isSignIn
               ? setLabel("Signing in...")
               : isAdvanced
-                ? setLabel("Signing up...")
-                : setLabel("Continueing...")
+              ? setLabel("Signing up...")
+              : setLabel("Continueing...")
           }
         >
           {label === "Continiue to Home Page" ? (
@@ -530,7 +524,6 @@ export default function Auth() {
             passwordagain={passwordagain}
           />
         )}
-        <br />
       </Grid>
     </Grid>
   );

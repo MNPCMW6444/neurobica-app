@@ -10,26 +10,31 @@ import Axios from "axios";
 import domain from "../../util/domain";
 import UserContext from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
 
 export default function Home() {
   const [numberOfTimes, setNumberOfTimes] = useState<number>(0);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
+
   useEffect(() => {
-    const getFromServer = async () =>
-      setNumberOfTimes(
-        (await Axios.get(domain + "howmanytimeshehadbeenhere")).data
-      );
+    const getFromServer = async () => {
+      try {
+        setNumberOfTimes(
+          (await Axios.get(domain + "howmanytimeshehadbeenhere")).data
+        );
+      } catch (e) {
+        navigate("/my-account");
+      }
+    };
     getFromServer();
   }, []);
 
-  return (
-    <>
-      {user ? (
-        <div>Hi {user.fullname + "!!!"}</div>
-      ) : (
-        <Button onClick={() => navigate("/my-account")}></Button>
-      )}
+  return !user ? (
+    <Button onClick={() => navigate("/my-account")}></Button>
+  ) : (
+    <Box>
+      <Typography>Hi {user.fullname + "!!!"}</Typography>
       <Grid
         container
         spacing={{ xs: 0, md: 0, lg: 2 }}
@@ -38,7 +43,11 @@ export default function Home() {
         alignItems="center"
         justifyContent="center"
       >
-        {numberOfTimes > 1 ? <p>asd</p> : <p>ewrgwef</p>}
+        {numberOfTimes > 1 ? (
+          <Typography>asd</Typography>
+        ) : (
+          <Typography>ewrgwef</Typography>
+        )}
 
         <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
           <Typography
@@ -127,9 +136,9 @@ export default function Home() {
           </Button>
         </Grid>
         {/* <Grid item sx={{ width: "100vh" }}>
-    <UserVisualData />
-  </Grid> */}
+  <UserVisualData />
+</Grid> */}
       </Grid>
-    </>
+    </Box>
   );
 }

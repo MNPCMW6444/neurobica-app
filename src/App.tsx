@@ -1,14 +1,8 @@
-import StatusBar from "./components/StatusBar/StatusBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import MyAccount from "./components/MyAccount/MyAccount";
 import MyBrain from "./components/MyBrain/MyBrain";
 import TrainMyBrain from "./components/TrainMyBrain/TrainMyBrain";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import HomeIcon from "@mui/icons-material/Home";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
@@ -16,11 +10,13 @@ import domain from "./util/domain";
 import Grid from "@mui/material/Grid";
 import brainGif from "./assets/spongebob-patrick.gif";
 import { UserContextProvider } from "./context/UserContext";
+import BottomBar from "./components/BottomBar/BottomBar";
+import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
 
 Axios.defaults.withCredentials = true;
 
 function App() {
-  const [value, setValue] = useState<string>();
   const [status, setStatus] = useState<string>(
     "Checking server availability..."
   );
@@ -39,13 +35,11 @@ function App() {
     status !== "good" && setTimeout(() => checkIfServerIsThere(), 500);
   }, [status]);
 
-  return status === "Checking server availability..." ? (
-    <p>Checking server availability...</p>
-  ) : status === "good" || process.env.REACT_APP_UI_FLAG === "yes" ? (
+  const app = (
     <UserContextProvider>
-      <div style={{ backgroundColor: "#FFF6F2" }}>
-        <div
-          style={{
+      <Box sx={{ backgroundColor: "#FFF6F2" }}>
+        <Box
+          sx={{
             height: "100vh",
             width: "100%",
             overflow: "scroll",
@@ -60,39 +54,14 @@ function App() {
               <Route path="/termsvf" element={<TermsAndConditions />} />
             </Routes>
           </Router>
-        </div>
-        <BottomNavigation
-          showLabels
-          value={value}
-          onChange={(value, newValue) => {
-            setValue(newValue);
-          }}
-          sx={{
-            backgroundColor: "#F5F5F5",
-            height: "10%",
-            position: "fixed",
-            bottom: "0",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <BottomNavigationAction
-            href="/train-my-brain"
-            label="Train"
-            icon={<FitnessCenterIcon />}
-          />
-          <BottomNavigationAction href="/" label="Home" icon={<HomeIcon />} />
-          <BottomNavigationAction
-            href="/my-brain"
-            label="Brain"
-            icon={<PsychologyOutlinedIcon />}
-          />
-        </BottomNavigation>
-      </div>
+        </Box>
+        <BottomBar />
+      </Box>
     </UserContextProvider>
-  ) : (
+  );
+
+  //TODO reDesign this message
+  const serverErrorMessage = (
     <Grid
       container
       alignItems="center"
@@ -101,15 +70,23 @@ function App() {
       direction="column"
     >
       <Grid item>
-        <p>
+        <Box>
           Connction Failed. Check Your Internert Connection, If You Still Can't
           Connect To Our servers, Please Contact Our Technical Support Team.
-        </p>
+        </Box>
       </Grid>
       <Grid item>
-        <img src={brainGif} alt="Brain Breakdown GIF"></img>
+        <Box component={"img"} src={brainGif} alt="Brain Breakdown GIF"></Box>
       </Grid>
     </Grid>
+  );
+
+  return status === "Checking server availability..." ? (
+    <Typography>Checking server availability...</Typography>
+  ) : status === "good" || process.env.REACT_APP_UI_FLAG === "yes" ? (
+    app
+  ) : (
+    serverErrorMessage
   );
 }
 
