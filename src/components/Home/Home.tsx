@@ -30,11 +30,9 @@ export default function Home() {
     getFromServer();
   }, []);
 
-  return !user ? (
-    <Button onClick={() => navigate("/my-account")}></Button>
-  ) : (
-    <Box>
-      <Typography>Hi {user.fullname + "!!!"}</Typography>
+  return (
+    <>
+      <StatusBar />
       <Grid
         container
         spacing={{ xs: 0, md: 0, lg: 2 }}
