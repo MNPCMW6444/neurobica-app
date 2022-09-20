@@ -3,7 +3,7 @@ import LoginPageSignInSignUpStyle from "./authStyle";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
-import { passwordStrength } from 'check-password-strength'
+import { passwordStrength } from "check-password-strength";
 import {
   GoogleReCaptcha,
   GoogleReCaptchaProvider,
@@ -81,7 +81,7 @@ export default function Auth() {
 
   const passwordValidation =
     passwordStrength(password).value === "Strong" ||
-    passwordStrength(password).value === "Medium"
+    passwordStrength(password).value === "Medium";
 
   return (
     <Grid
@@ -156,12 +156,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -235,12 +235,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -415,12 +415,12 @@ export default function Auth() {
                   email.includes("+")
                     ? "Email Address mustn't include '+'"
                     : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
                 }
                 InputProps={{
                   startAdornment: (
@@ -499,8 +499,8 @@ export default function Auth() {
             isSignIn
               ? setLabel("Signing in...")
               : isAdvanced
-                ? setLabel("Signing up...")
-                : setLabel("Continueing...")
+              ? setLabel("Signing up...")
+              : setLabel("Continueing...")
           }
         >
           {label === "Continiue to Home Page" ? (
