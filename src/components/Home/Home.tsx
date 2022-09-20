@@ -11,6 +11,7 @@ import domain from "../../util/domain";
 import UserContext from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
+import StatusBar from "../StatusBar/StatusBar";
 
 export default function Home() {
   const [numberOfTimes, setNumberOfTimes] = useState<number>(0);
@@ -31,7 +32,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <Box>
       <StatusBar />
       <Grid
         container
@@ -46,7 +47,6 @@ export default function Home() {
         ) : (
           <Typography>ewrgwef</Typography>
         )}
-
         <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
           <Typography
             sx={{
