@@ -10,6 +10,7 @@ import Axios from "axios";
 import domain from "../../util/domain";
 import UserContext from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import StatusBar from "../StatusBar/StatusBar";
 
 export default function Home() {
   const [numberOfTimes, setNumberOfTimes] = useState<number>(0);
@@ -25,11 +26,7 @@ export default function Home() {
 
   return (
     <>
-      {user ? (
-        <div>Hi {user.fullname + "!!!"}</div>
-      ) : (
-        <Button onClick={() => navigate("/my-account")}></Button>
-      )}
+      <StatusBar />
       <Grid
         container
         spacing={{ xs: 0, md: 0, lg: 2 }}
@@ -38,8 +35,6 @@ export default function Home() {
         alignItems="center"
         justifyContent="center"
       >
-        {numberOfTimes > 1 ? <p>asd</p> : <p>ewrgwef</p>}
-
         <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
           <Typography
             sx={{
