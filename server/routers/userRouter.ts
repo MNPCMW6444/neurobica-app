@@ -80,7 +80,7 @@ router.post("/signupreq", async (req, res) => {
     }).save();
 
     sgMail.setApiKey(
-      "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" // Very-Sensitive
+      "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" // Very-Sensitive
     );
     const msg = {
       to: email,
