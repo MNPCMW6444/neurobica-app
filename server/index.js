@@ -84,7 +84,7 @@ const logReq = (req: Request<{}, any, any, Record<string, any>>) =>
   }); */
 app.listen(port, () => console.log(`Server started on port: ${port}`));
 app.use((_, res, next) => {
-    if (mainDbStatus && oCDbStatus)
+    if (true || mainDbStatus || oCDbStatus)
         next();
     else
         res

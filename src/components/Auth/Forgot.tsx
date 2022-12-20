@@ -1,5 +1,4 @@
 import "./authStyle.css";
-import LoginPageSignInSignUpStyle from "./authStyle";
 import NeurobicaLogo from "../NeurobicaLogo/NeurobicaLogo";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
@@ -8,8 +7,6 @@ import {
   GoogleReCaptcha,
   GoogleReCaptchaProvider,
 } from "react-google-recaptcha-v3";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ToggleButton from "@mui/material/ToggleButton";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -17,13 +14,14 @@ import Email from "@mui/icons-material/Email";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
-import Signin from "../Signin/Signin";
-import SignupReq from "../SignupReq/SignupReq";
 import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
-import { Link } from "react-router-dom";
-import SignupFin from "../SignupFin/SignupFin";
-export default function Auth() {
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import domain from "../../util/domain";
+import { Store } from "react-notifications-component";
+
+export default function Forgot() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAdvanced, setIsAdvanceed] = useState(false);
   const [isAllowedToSignIn, setSsAllowedToSignIn] = useState(false);
@@ -33,8 +31,10 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [passwordagain, setPasswordagain] = useState("");
   const [label, setLabel] = useState<string>(
-    isSignIn ? "Sign In" : "Continiue"
+    isSignIn ? "Send me a reset link" : "Continiue"
   );
+
+  let navigate = useNavigate();
 
   const [state, setState] = useState<{
     checkedA: boolean;
@@ -97,38 +97,7 @@ export default function Auth() {
         <NeurobicaLogo c={5} />
       </Grid>
       <Grid item xs={4}>
-        <Box className="loginPageSignInSignUp">
-          <ToggleButtonGroup value={isSignIn}>
-            <ToggleButton
-              onClick={() => {
-                setIsSignIn(true);
-                setLabel("Sign In");
-              }}
-              sx={
-                isSignIn
-                  ? LoginPageSignInSignUpStyle.selected
-                  : LoginPageSignInSignUpStyle.unselected
-              }
-              value="signin"
-            >
-              Sign In
-            </ToggleButton>
-            <ToggleButton
-              onClick={() => {
-                setIsSignIn(false);
-                setLabel("Continue");
-              }}
-              sx={
-                isSignIn
-                  ? LoginPageSignInSignUpStyle.unselected
-                  : LoginPageSignInSignUpStyle.selected
-              }
-              value="signup"
-            >
-              Sign Up
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Box>
+        <Box className="loginPageSignInSignUp"></Box>
         {isSignIn ? (
           <Box
             component="form"
@@ -174,36 +143,6 @@ export default function Auth() {
                 placeholder="Enter Your Email Address"
                 onChange={(e) => {
                   setEmail(e.target.value);
-                }}
-              />
-            </Box>
-
-            <Box>
-              <TextField
-                sx={{
-                  m: 0,
-                  width: "40vh",
-                }}
-                error={!passwordValidation}
-                id="tandard-basic"
-                variant="standard"
-                type="password"
-                label={
-                  passwordValidation === false
-                    ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
-                    : "Password"
-                }
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Lock />
-                    </InputAdornment>
-                  ),
-                }}
-                value={password}
-                placeholder="Enter Your Password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
                 }}
               />
             </Box>
@@ -434,93 +373,79 @@ export default function Auth() {
           </Box>
         )}
       </Grid>
-      <Grid item xs={4} sx={{ padding: "0vh" }}>
-        <Grid container>
-          <Grid item>
-            <FormControlLabel
-              label="Rememmber Me"
-              sx={{
-                color: "GrayText",
-                width: "25vh",
-              }}
-              control={
-                <Checkbox
-                  sx={{
-                    fontSize: "28",
-                  }}
-                  checked={state2.checkedB}
-                  onChange={handleChange2}
-                  name="checkedB"
-                  color="default"
-                  size="small"
-                />
-              }
-            />
-          </Grid>
-          <Grid item alignSelf="center">
-            <Box className="text">
-              <a href="forgotpass" style={{ color: "#FF8B17" }}>
-                Trouble Logging In?
-              </a>
-            </Box>
-          </Grid>
-        </Grid>
-      </Grid>
       <Grid item xs={4}>
-        <GoogleReCaptchaProvider reCaptchaKey="6LcrTYUhAAAAALcocJuPUztaWEIAsY_DdAuRxx8b">
-          <GoogleReCaptcha
-            onVerify={() => {
-              setSsAllowedToSignIn(true);
-            }}
-          />
-        </GoogleReCaptchaProvider>
-      </Grid>
-      <Grid item xs={4}>
-        <Button
-          disabled={!isAllowedToSignIn || emailValidation}
-          color="inherit"
-          variant="outlined"
+        <TextField
           sx={{
-            color: "#FF8B17",
-            width: "45vh",
-            height: "6vh",
-            borderRadius: "30px",
+            m: 0,
+            width: "40vh",
           }}
-          onClick={() =>
-            isSignIn
-              ? setLabel("Signing in...")
-              : isAdvanced
-              ? setLabel("Signing up...")
-              : setLabel("Continueing...")
+          error={!passwordValidation}
+          type="password"
+          variant="standard"
+          label="key"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Lock />
+              </InputAdornment>
+            ),
+          }}
+          value={key}
+          placeholder="Enter Your Key (check you email inbox)"
+          onChange={(e) => setKey(e.target.value)}
+        />
+      </Grid>
+      <Grid item xs={4}>
+        <TextField
+          sx={{
+            m: 0,
+            width: "40vh",
+          }}
+          error={false}
+          type="password"
+          variant="standard"
+          label={
+            passwordValidation === false
+              ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+              : "Password"
           }
-        >
-          {label === "Continiue to Home Page" ? (
-            <Link to="../">By clicking in this link</Link>
-          ) : (
-            label
-          )}
-        </Button>
-
-        {label === "Signing in..." && (
-          <Signin email={email} password={password} setLabel={setLabel} />
-        )}
-        {label === "Continueing..." && (
-          <SignupReq
-            setLabel={setLabel}
-            setIsAdvanced={setIsAdvanceed}
-            email={email}
-          />
-        )}
-        {label === "Signing up..." && (
-          <SignupFin
-            setLabel={setLabel}
-            email={email}
-            secretKey={key}
-            fullname={fullname}
-            password={password}
-            passwordagain={passwordagain}
-          />
-        )}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Lock />
+              </InputAdornment>
+            ),
+          }}
+          value={password}
+          placeholder="Enter Your Password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+      </Grid>
+      <Grid item xs={4}>
+        <TextField
+          sx={{
+            m: 0,
+            width: "40vh",
+          }}
+          error={password !== passwordagain}
+          type="password"
+          variant="standard"
+          label="Confirm Password"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Lock />
+              </InputAdornment>
+            ),
+          }}
+          value={passwordagain}
+          placeholder="Confirm Your Password"
+          onChange={(e) => {
+            setPasswordagain(e.target.value);
+          }}
+        />
       </Grid>
     </Grid>
   );

@@ -15,7 +15,9 @@ export default function Signout() {
         await Axios.get(domain + "user/signout", {});
         await getUser();
         navigate("/my-account");
-      } catch (err: any) {}
+      } catch (err: any) {
+        navigate("/my-account");
+      }
     };
     signout();
   }, []);

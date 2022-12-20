@@ -13,6 +13,7 @@ import { UserContextProvider } from "./context/UserContext";
 import BottomBar from "./components/BottomBar/BottomBar";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
+import Forgotpass from "./components/Auth/Forgot";
 
 Axios.defaults.withCredentials = true;
 
@@ -49,6 +50,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/my-account" element={<MyAccount />} />
+              <Route path="/forgotpass" element={<Forgotpass />} />
               <Route path="/my-brain" element={<MyBrain />} />
               <Route path="/train-my-brain" element={<TrainMyBrain />} />
               <Route path="/termsvf" element={<TermsAndConditions />} />

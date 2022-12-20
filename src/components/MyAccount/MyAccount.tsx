@@ -4,7 +4,7 @@ import LoginPage from "../Auth/Auth";
 import StatusBar from "../StatusBar/StatusBar";
 
 export default function MyAccount() {
-  const { user } = useContext(UserContext);
+  let { user } = useContext(UserContext);
 
   return (
     <>
