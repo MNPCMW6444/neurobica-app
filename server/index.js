@@ -12,6 +12,17 @@ const winston_1 = __importDefault(require("winston"));
 require("winston-mongodb");
 const userRouter_1 = __importDefault(require("./routers/userRouter"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const passport_google_oauth20_1 = __importDefault(require("passport-google-oauth20"));
+passport.use(new passport_google_oauth20_1.default({
+    clientID: GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback",
+}, function (accessToken, refreshToken, profile, cb) {
+    // Find or create the user in your database
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return cb(err, user);
+    });
+}));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 6444;
 dotenv_1.default.config();

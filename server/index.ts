@@ -8,6 +8,24 @@ import "winston-mongodb";
 import userRouter from "./routers/userRouter";
 import cookieParser from "cookie-parser";
 
+import { Strategy } from "passport-google-oauth20";
+
+passport.use(
+  new Strategy.GoogleStrategy(
+    {
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      callbackURL: "http://localhost:3000/auth/google/callback",
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      // Find or create the user in your database
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+    }
+  )
+);
+
 const app = express();
 const port = process.env.PORT || 6444;
 
