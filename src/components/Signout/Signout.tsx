@@ -16,6 +16,7 @@ export default function Signout() {
         await getUser();
         navigate("/my-account");
       } catch (err: any) {
+        await getUser();
         navigate("/my-account");
       }
     };

@@ -8,8 +8,12 @@ function UserContextProvider(props: any) {
   const [user, setUser] = useState(undefined);
 
   async function getUser() {
-    const userRes = await Axios.get(domain + "user/signedin");
-    setUser(userRes.data);
+    try {
+      const userRes = await Axios.get(domain + "user/signedin");
+      setUser(userRes.data);
+    } catch (e) {
+      setUser(undefined);
+    }
   }
 
   useEffect(() => {

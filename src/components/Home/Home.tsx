@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 // import Lil from "../Lil/Lil";
 import { useContext, useState } from "react";
 import Signout from "../Signout/Signout";
+import { getSuggestedQuery } from "@testing-library/react";
 
 export default function Home() {
-  const { user } = useContext(UserContext);
+  const { user, getUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [signout, Signoutf] = useState(false);
 
@@ -18,7 +19,14 @@ export default function Home() {
           Hi {user.fullname + "!!!"}
           <p>Do Tova Test</p>
           <p>logout here:</p>
-          <Button onClick={() => Signoutf(true)}>Log Out</Button>
+          <Button
+            onClick={() => {
+              Signoutf(true);
+              getUser();
+            }}
+          >
+            Log Out
+          </Button>
           {signout && <Signout />}
         </div>
       ) : (

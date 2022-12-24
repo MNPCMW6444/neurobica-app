@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../../context/UserContext";
 import LoginPage from "../Auth/Auth";
 import StatusBar from "../StatusBar/StatusBar";
