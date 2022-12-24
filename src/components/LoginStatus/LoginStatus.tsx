@@ -8,6 +8,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Signout from "../Signout/Signout";
 import React from "react";
 import UserContext from "../../context/UserContext";
+import Box from "@mui/material/Box";
 
 export default function LoginStatus() {
   const [signOut, setSignOut] = useState<boolean>(false);
@@ -24,9 +25,19 @@ export default function LoginStatus() {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="loginStatus">
+    <Box
+      sx={{
+        height: "5%",
+        position: "fixed",
+        top: "0",
+        width: "100%",
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: "center",
+      }}
+    >
       {user ? (
-        <div>
+        <Box>
           <Button
             id="fade-button"
             aria-controls={open ? "fade-menu" : undefined}
@@ -50,7 +61,7 @@ export default function LoginStatus() {
             <MenuItem onClick={handleClose}>My account</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
-        </div>
+        </Box>
       ) : (
         <Button
           variant="outlined"
@@ -64,6 +75,6 @@ export default function LoginStatus() {
         </Button>
       )}
       {signOut && <Signout />}
-    </div>
+    </Box>
   );
 }
