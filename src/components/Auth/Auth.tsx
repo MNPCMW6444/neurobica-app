@@ -477,7 +477,7 @@ export default function Auth() {
       </Grid>
       <Grid item xs={4}>
         <Button
-          disabled={!isAllowedToSignIn || emailValidation}
+          disabled={/* !isAllowedToSignIn || */ emailValidation}
           color="inherit"
           variant="outlined"
           sx={{
