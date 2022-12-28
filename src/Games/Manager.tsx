@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Cards from "./Cards";
+import Hall from "./Hall";
 import Party from "./Party";
 
 export type Hit = "X" | "V";
 
 export default function Manager() {
+  const [fightsnOn, setFightsnOn] = useState(true);
+
   const [level, setLevel] = useState(2);
 
   const [timer, setTimer] = useState(new Date().getTime());
@@ -19,6 +22,12 @@ export default function Manager() {
     setPartyMode(newValue);
   };
 
+  const finishgame = () => {
+    setFightsnOn(false);
+  };
+
+  if (new Date().getTime() - timer > 60000) finishgame();
+
   if (hits.length === level) {
     if (hits.filter((hit) => hit === "X").length > 1) {
       setScore(score - 2 ** (level - 1) * 100);
@@ -32,16 +41,18 @@ export default function Manager() {
     }
     setPartyMode(true);
   }
-  return partyMode ? (
-    <Party onChange={finishParty}></Party>
-  ) : (
-    <Cards
-      n={level}
-      hits={hits}
-      setHits={setHits}
-      score={score}
-      setTimer={setTimer}
-      timer={timer}
-    />
-  );
+  if (fightsnOn)
+    return partyMode ? (
+      <Party onChange={finishParty}></Party>
+    ) : (
+      <Cards
+        n={level}
+        hits={hits}
+        setHits={setHits}
+        score={score}
+        setTimer={setTimer}
+        timer={timer}
+      />
+    );
+  return <Hall />;
 }
