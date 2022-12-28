@@ -1,12 +1,14 @@
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
+import { timeInSeconds } from "./settings";
 
 export default function Timer({ otime }: any) {
   const [x, setX] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(
-      () => setX(60 - Math.floor((new Date().getTime() - otime) / 1000)),
+      () =>
+        setX(timeInSeconds - Math.floor((new Date().getTime() - otime) / 1000)),
       500
     );
 

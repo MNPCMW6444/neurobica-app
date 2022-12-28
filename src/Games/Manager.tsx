@@ -2,6 +2,7 @@ import { useState } from "react";
 import Cards from "./Cards";
 import Hall from "./Hall";
 import Party from "./Party";
+import { timeInSeconds } from "./settings";
 
 export type Hit = "X" | "V";
 
@@ -38,7 +39,7 @@ export default function Manager() {
 
   const finishgame = () => fightsnOn && setFightsnOn(false);
 
-  if (new Date().getTime() - timer > 5000) {
+  if (new Date().getTime() - timer > timeInSeconds * 1000) {
     debugger;
     finishgame();
   }

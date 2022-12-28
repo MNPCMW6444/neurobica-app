@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Hit } from "./Manager";
 import NeurobiCard from "./NeurobiCard";
+import { visibilityTimeInMillis } from "./settings";
 import Timer from "./Timer";
 export const GOLD = "#F9A645";
 
@@ -40,7 +41,7 @@ export default function Cards({
   const [colors, setColors] = useState<gameColor[][]>(colorstemp);
 
   useEffect(() => {
-    setTimeout(() => setColors(blacknxn(n)), 2000);
+    setTimeout(() => setColors(blacknxn(n)), visibilityTimeInMillis);
   }, []);
 
   return colors ? (
