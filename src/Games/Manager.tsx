@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Cards from "./Cards";
 import Hall from "./Hall";
 import Party from "./Party";
@@ -22,11 +22,26 @@ export default function Manager() {
     setPartyMode(newValue);
   };
 
-  const finishgame = () => {
-    setFightsnOn(false);
+  const restartGame = () => {
+    setFightsnOn(true);
+
+    setLevel(2);
+
+    setTimer(new Date().getTime());
+
+    setHits([]);
+
+    setScore(0);
+
+    setPartyMode(false);
   };
 
-  if (new Date().getTime() - timer > 60000) finishgame();
+  const finishgame = () => fightsnOn && setFightsnOn(false);
+
+  if (new Date().getTime() - timer > 5000) {
+    debugger;
+    finishgame();
+  }
 
   if (hits.length === level) {
     if (hits.filter((hit) => hit === "X").length > 1) {
@@ -41,6 +56,7 @@ export default function Manager() {
     }
     setPartyMode(true);
   }
+
   if (fightsnOn)
     return partyMode ? (
       <Party onChange={finishParty}></Party>
@@ -54,5 +70,5 @@ export default function Manager() {
         timer={timer}
       />
     );
-  return <Hall setFightsnOn={setFightsnOn} />;
+  return <Hall setFightsnOn={restartGame} />;
 }
