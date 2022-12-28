@@ -54,5 +54,5 @@ export default function Manager() {
         timer={timer}
       />
     );
-  return <Hall />;
+  return <Hall setFightsnOn={setFightsnOn} />;
 }
