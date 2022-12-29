@@ -12,6 +12,8 @@ const winston_1 = __importDefault(require("winston"));
 require("winston-mongodb");
 const userRouter_1 = __importDefault(require("./routers/userRouter"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const memoryRouter_1 = __importDefault(require("./routers/memoryRouter"));
+const responseRouter_1 = __importDefault(require("./routers/responseRouter"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 6444;
 dotenv_1.default.config();
@@ -92,4 +94,6 @@ app.use((_, res, next) => {
             .json({ serverError: "Server is down now. Please try again later." });
 });
 app.use("/user", userRouter_1.default);
+app.use("/memory", memoryRouter_1.default);
+app.use("/response", responseRouter_1.default);
 app.get("/areyoualive", (_, res) => res.json({ answer: "yes" }));

@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import domain from "../../util/domain";
 import Cards from "./Cards";
 import Hall from "./Hall";
 import Party from "./Party";
@@ -23,12 +25,18 @@ export default function Manager() {
     setPartyMode(newValue);
   };
 
-  const finishgame = () => fightsnOn && setFightsnOn(false);
+  const finishgame = async () => {
+    if (fightsnOn) {
+      try {
+        await axios.post(domain + "memory/save", { score });
+      } catch (e) {
+        console.log(e);
+      }
+      setFightsnOn(false);
+    }
+  };
 
-  if (new Date().getTime() - timer > timeInSeconds * 1000) {
-    debugger;
-    finishgame();
-  }
+  new Date().getTime() - timer > timeInSeconds * 1000 && finishgame();
 
   if (hits.length === level) {
     if (hits.filter((hit) => hit === "X").length > 1) {

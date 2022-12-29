@@ -5,8 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
-import Cards from "./Games/Cards";
-import Manager from "./Games/Manager";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

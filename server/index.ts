@@ -7,6 +7,8 @@ import winston from "winston";
 import "winston-mongodb";
 import userRouter from "./routers/userRouter";
 import cookieParser from "cookie-parser";
+import memoryRouter from "./routers/memoryRouter";
+import responseRouter from "./routers/responseRouter";
 
 const app = express();
 const port = process.env.PORT || 6444;
@@ -105,4 +107,6 @@ app.use((_, res, next) => {
 });
 
 app.use("/user", userRouter);
+app.use("/memory", memoryRouter);
+app.use("/response", responseRouter);
 app.get("/areyoualive", (_, res) => res.json({ answer: "yes" }));
