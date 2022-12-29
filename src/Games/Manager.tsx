@@ -23,20 +23,6 @@ export default function Manager() {
     setPartyMode(newValue);
   };
 
-  const restartGame = () => {
-    setFightsnOn(true);
-
-    setLevel(2);
-
-    setTimer(new Date().getTime());
-
-    setHits([]);
-
-    setScore(0);
-
-    setPartyMode(false);
-  };
-
   const finishgame = () => fightsnOn && setFightsnOn(false);
 
   if (new Date().getTime() - timer > timeInSeconds * 1000) {
@@ -71,5 +57,14 @@ export default function Manager() {
         timer={timer}
       />
     );
-  return <Hall setFightsnOn={restartGame} />;
+  return (
+    <Hall
+      setFightsnOn={setFightsnOn}
+      setLevel={setLevel}
+      setTimer={setTimer}
+      setHits={setHits}
+      setScore={setScore}
+      setPartyMode={setPartyMode}
+    />
+  );
 }

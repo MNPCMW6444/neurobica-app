@@ -43,7 +43,7 @@ function App() {
           sx={{
             height: "100vh",
             width: "100%",
-            overflow: "scroll",
+            overflow: "hidden",
           }}
         >
           <Router>
@@ -57,7 +57,8 @@ function App() {
             </Routes>
           </Router>
         </Box>
-        <BottomBar />
+        {/*         <BottomBar />
+         */}{" "}
       </Box>
     </UserContextProvider>
   );
