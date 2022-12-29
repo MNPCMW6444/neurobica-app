@@ -1,5 +1,5 @@
-import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
+import { TypoYoad } from "../../TypoYoad";
 import { timeInSeconds } from "./settings";
 
 export default function Timer({ otime }: any) {
@@ -15,5 +15,5 @@ export default function Timer({ otime }: any) {
     return () => clearInterval(interval);
   }, []);
 
-  return <Typography variant="h5">{"Timer: " + x}</Typography>;
+  return <TypoYoad variant="h5">{"Timer: " + x}</TypoYoad>;
 }

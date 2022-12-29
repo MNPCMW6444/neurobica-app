@@ -13,7 +13,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Email from "@mui/icons-material/Email";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
 import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import { Link, useNavigate } from "react-router-dom";

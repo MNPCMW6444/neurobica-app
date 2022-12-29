@@ -10,10 +10,9 @@ import domain from "./util/domain";
 import Grid from "@mui/material/Grid";
 import brainGif from "./assets/spongebob-patrick.gif";
 import { UserContextProvider } from "./context/UserContext";
-import BottomBar from "./components/BottomBar/BottomBar";
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
 import Forgotpass from "./components/Auth/Forgot";
+import { TypoYoad } from "./TypoYoad";
 
 Axios.defaults.withCredentials = true;
 
@@ -85,7 +84,7 @@ function App() {
   );
 
   return status === "Checking server availability..." ? (
-    <Typography>Checking server availability...</Typography>
+    <TypoYoad>Checking server availability...</TypoYoad>
   ) : status === "good" || process.env.REACT_APP_UI_FLAG === "yes" ? (
     app
   ) : (

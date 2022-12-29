@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { TypoYoad } from "../../TypoYoad";
 import False from "./False";
 import Maybe from "./Maybe";
 import True from "./True";
@@ -14,7 +15,7 @@ interface WeeklyProps {
 const Weekly = ({ defaultBooleanWeek, width }: WeeklyProps) => {
   return (
     <Box width={width || "100%"}>
-      <Typography variant="h4"> Your Week Streak!</Typography>
+      <TypoYoad variant="h4"> Your Week Streak!</TypoYoad>
       <Grid container justifyContent="space-around" alignItems="center">
         {defaultBooleanWeek.map((day) =>
           day === undefined ? <Maybe /> : day === true ? <True /> : <False />

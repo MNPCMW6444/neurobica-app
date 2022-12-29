@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import {
@@ -10,6 +9,7 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
+import { TypoYoad } from "../../TypoYoad";
 import domain from "../../util/domain";
 
 export default function NewRadar({}: any) {
@@ -20,23 +20,25 @@ export default function NewRadar({}: any) {
     const getMemory = async () => {
       try {
         const scores = await axios.get(domain + "memory/getScores");
-        setMemory(scores.data);
+        setMemory(scores.data.map((r: any) => r.result));
       } catch (e) {}
     };
     getMemory();
     const getResponse = async () => {
       try {
         const scores = await axios.get(domain + "response/getScores");
-        setResponse(scores.data);
+        setResponse(scores.data.map((r: any) => r.result));
       } catch (e) {}
     };
     getResponse();
   }, []);
 
-  console.log(memory.length);
-  console.log(response.length);
+  const numberOfTests = Math.min(
+    memory ? memory.length || 0 : 0,
+    response ? response.length || 0 : 0
+  );
 
-  if (memory.length > 0) {
+  if (numberOfTests) {
     let data: any = [
       {
         subject: "Attention",
@@ -49,13 +51,12 @@ export default function NewRadar({}: any) {
       },
     ];
 
-    const numberOfTests = Math.min(memory.length, response.length);
     for (let i = 0; i < numberOfTests; i++) {
       data[1][("Test" + i) as keyof any] = memory[i];
       data[0][("Test" + i) as keyof any] = response[i];
       data[2][("Test" + i) as keyof any] = response[i];
     }
-    debugger;
+
     console.log(data);
 
     return (
@@ -89,6 +90,5 @@ export default function NewRadar({}: any) {
         </RadarChart>
       </ResponsiveContainer>
     );
-  } else
-    return <Typography>Loading... or maybe you didnt do any test</Typography>;
+  } else return <TypoYoad>Loading... or maybe you didnt do any test</TypoYoad>;
 }

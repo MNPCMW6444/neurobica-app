@@ -1,15 +1,14 @@
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import IconButton from "@mui/material/IconButton";
 
 import UserVisualDataRadar from "../UserVisualDataRadar/UserVisualDataRadar";
 
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import domain from "../../util/domain";
-import Button from "@mui/material/Button";
+import { TypoYoad } from "../../TypoYoad";
+import { YoadButn } from "../../YoadButn";
 
 export default function Lil() {
   const [numberOfTimes, setNumberOfTimes] = useState<number>(0);
@@ -34,7 +33,7 @@ export default function Lil() {
       {numberOfTimes > 1 ? <p>asd</p> : <p>ewrgwef</p>}
 
       <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
-        <Typography
+        <TypoYoad
           sx={{
             color: "#FF8B17",
             textShadow: "1px 1px",
@@ -45,12 +44,12 @@ export default function Lil() {
           gutterBottom={true}
         >
           Hello, Ready To Train?
-        </Typography>
+        </TypoYoad>
       </Grid>
       <Grid item m={2} xs={2} lg={2} paddingBottom="5vh">
-        <Button
-          color="inherit"
+        <YoadButn
           variant="outlined"
+          color="inherit"
           sx={{
             color: "#FF8B17",
             width: "100%",
@@ -61,11 +60,11 @@ export default function Lil() {
           }}
         >
           +
-        </Button>
+        </YoadButn>
       </Grid>
 
       <Grid item m={2} lg={2} xs={2} paddingLeft="3vh" sx={{ margin: "0" }}>
-        <Typography
+        <TypoYoad
           sx={{
             color: "black",
             fontWeight: "bold",
@@ -76,17 +75,17 @@ export default function Lil() {
           gutterBottom={true}
         >
           Check Your Gains
-          <IconButton sx={{ left: "40%" }} aria-label="Gains">
+          <YoadButn variant="outlined" sx={{ left: "40%" }} aria-label="Gains">
             <ArrowForwardIosIcon />
-          </IconButton>
-        </Typography>
+          </YoadButn>
+        </TypoYoad>
       </Grid>
 
       <Grid item paddingBottom="5vh" sx={{ width: "100%" }}>
         <UserVisualDataRadar />
       </Grid>
       <Grid item m={2} paddingLeft="3vh" lg={2} xs={2} sx={{ margin: "0" }}>
-        <Typography
+        <TypoYoad
           sx={{
             color: "black",
             fontWeight: "bold",
@@ -97,16 +96,16 @@ export default function Lil() {
           gutterBottom={true}
         >
           Test Your Brain
-          <IconButton aria-label="Gains" sx={{ left: "45%" }}>
+          <YoadButn variant="outlined" aria-label="Gains" sx={{ left: "45%" }}>
             <ArrowForwardIosIcon />
-          </IconButton>
-        </Typography>
+          </YoadButn>
+        </TypoYoad>
       </Grid>
 
       <Grid item m={2} lg={2} xs={2} paddingBottom="10vh">
-        <Button
-          color="inherit"
+        <YoadButn
           variant="outlined"
+          color="inherit"
           sx={{
             color: "#FF8B17",
             width: "100%",
@@ -117,7 +116,7 @@ export default function Lil() {
           }}
         >
           Quick Start
-        </Button>
+        </YoadButn>
       </Grid>
       {/* <Grid item sx={{ width: "100vh" }}>
 <UserVisualData />

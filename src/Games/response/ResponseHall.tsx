@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect } from "react";
+import { TypoYoad } from "../../TypoYoad";
 import domain from "../../util/domain";
 import { avg } from "./ResponseTime";
 
@@ -18,5 +18,5 @@ export default function ResponseHall({ scores }: any) {
     asyncSend();
   }, []);
 
-  return <Typography>{avg(scores)}</Typography>;
+  return <TypoYoad>{avg(scores)}</TypoYoad>;
 }

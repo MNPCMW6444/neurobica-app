@@ -1,4 +1,4 @@
-import Button from "@mui/material/Button";
+import { YoadButn } from "../../YoadButn";
 
 export default function Hall({
   setFightsnOn,
@@ -9,7 +9,8 @@ export default function Hall({
   setPartyMode,
 }: any) {
   return (
-    <Button
+    <YoadButn
+      variant="outlined"
       onClick={() => {
         setFightsnOn(true);
 
@@ -25,6 +26,6 @@ export default function Hall({
       }}
     >
       Play again?
-    </Button>
+    </YoadButn>
   );
 }

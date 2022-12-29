@@ -34,7 +34,9 @@ router.get("/getScores", async (req, res) => {
     const validatedUser = jwt.verify(token, process.env.JWT_SECRET as string);
     const userId = (validatedUser as JwtPayload).id;
     const memories = await responseResult.find();
-    memories.filter((resp) => (resp.owner as any).toString() === userId);
+    res.json(
+      memories.filter((resp) => (resp.owner as any).toString() === userId)
+    );
   } catch (err) {
     console.error(err);
     res

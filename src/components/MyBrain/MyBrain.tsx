@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { YoadButn } from "../../YoadButn";
 import StatusBar from "../StatusBar/StatusBar";
 
 export default function MyBrain() {
@@ -17,7 +18,8 @@ export default function MyBrain() {
       >
         <StatusBar />
       </div>
-      <button
+      <YoadButn
+        variant="outlined"
         style={{
           height: heightTop + "vh",
           width: "100vw",
@@ -28,7 +30,8 @@ export default function MyBrain() {
           setHeightBottom(heightBottom - 5);
         }}
       />
-      <button
+      <YoadButn
+        variant="outlined"
         style={{
           height: heightBottom + "vh",
           width: "100vw",

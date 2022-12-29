@@ -39,7 +39,7 @@ router.get("/getScores", async (req, res) => {
         const validatedUser = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
         const userId = validatedUser.id;
         const memories = await responseResult_1.default.find();
-        memories.filter((resp) => resp.owner.toString() === userId);
+        res.json(memories.filter((resp) => resp.owner.toString() === userId));
     }
     catch (err) {
         console.error(err);

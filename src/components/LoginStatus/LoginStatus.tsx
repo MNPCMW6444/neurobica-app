@@ -1,6 +1,5 @@
 import "./loginStatus.css";
 import { useContext, useState } from "react";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
@@ -9,6 +8,9 @@ import Signout from "../Signout/Signout";
 import React from "react";
 import UserContext from "../../context/UserContext";
 import Box from "@mui/material/Box";
+import { YoadButn } from "../../YoadButn";
+import { Button } from "@mui/material";
+import { Person } from "@mui/icons-material";
 
 export default function LoginStatus() {
   const [signOut, setSignOut] = useState<boolean>(false);
@@ -38,16 +40,17 @@ export default function LoginStatus() {
     >
       {user ? (
         <Box>
-          <Button
+          <YoadButn
             id="fade-button"
             aria-controls={open ? "fade-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
           >
-            {user.fullname.split(" ")[0]}
-            <AccountCircleIcon />
-          </Button>
+            {/*             {user.fullname.split(" ")[0]}
+             */}
+            <Person />
+          </YoadButn>
           <Menu
             id="fade-menu"
             MenuListProps={{
@@ -63,7 +66,7 @@ export default function LoginStatus() {
           </Menu>
         </Box>
       ) : (
-        <Button
+        <YoadButn
           variant="outlined"
           href="../../my-account"
           sx={{
@@ -72,7 +75,7 @@ export default function LoginStatus() {
           }}
         >
           Login
-        </Button>
+        </YoadButn>
       )}
       {signOut && <Signout />}
     </Box>

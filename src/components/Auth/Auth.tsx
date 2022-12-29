@@ -16,13 +16,13 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Email from "@mui/icons-material/Email";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
 import Signin from "../Signin/Signin";
 import SignupReq from "../SignupReq/SignupReq";
 import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import { Link } from "react-router-dom";
 import SignupFin from "../SignupFin/SignupFin";
+import { YoadButn } from "../../YoadButn";
 export default function Auth() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAdvanced, setIsAdvanceed] = useState(false);
@@ -476,10 +476,10 @@ export default function Auth() {
         </GoogleReCaptchaProvider>
       </Grid>
       <Grid item xs={4}>
-        <Button
+        <YoadButn
+          variant="outlined"
           disabled={/* !isAllowedToSignIn || */ emailValidation}
           color="inherit"
-          variant="outlined"
           sx={{
             color: "#FF8B17",
             width: "45vh",
@@ -499,7 +499,7 @@ export default function Auth() {
           ) : (
             label
           )}
-        </Button>
+        </YoadButn>
 
         {label === "Signing in..." && (
           <Signin email={email} password={password} setLabel={setLabel} />

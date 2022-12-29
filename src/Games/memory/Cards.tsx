@@ -1,8 +1,8 @@
-import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { TypoYoad } from "../../TypoYoad";
 import { Hit } from "./Manager";
 import NeurobiCard from "./NeurobiCard";
 import { visibilityTimeInMillis } from "./settings";
@@ -87,8 +87,8 @@ function generateCardGrid(
           sx={{ textAlign: "center" }}
         >
           {" "}
-          <Typography variant="h2">{score}</Typography>
-          <Typography variant="h5">{"level: " + (n - 1)}</Typography>
+          <TypoYoad variant="h2">{score}</TypoYoad>
+          <TypoYoad variant="h5">{"level: " + (n - 1)}</TypoYoad>
           <Timer otime={timer} />
         </Box>
 

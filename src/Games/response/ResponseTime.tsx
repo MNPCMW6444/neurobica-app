@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import ResponseHall from "./ResponseHall";
 
 import mascot from "../../assets/MascotWeights.png";
 import NeurobicaColors from "../../util/NeurobicaColors";
+import { TypoYoad } from "../../TypoYoad";
 
 export const avg = (arr: number[]) => {
   let avg = 0;
@@ -71,10 +72,10 @@ export default function ResponseTime({
         height="5vh"
         sx={{ textAlign: "center" }}
       >
-        <Typography variant="h4">
+        <TypoYoad variant="h4">
           {"Score: " + Math.floor(avg(scores) * 100)}
-        </Typography>
-        <Typography variant="h4">{"Round: " + rounds + " / 4"}</Typography>
+        </TypoYoad>
+        <TypoYoad variant="h4">{"Round: " + rounds + " / 4"}</TypoYoad>
       </Box>
 
       {time1 === 0 ? (
@@ -90,9 +91,9 @@ export default function ResponseTime({
             alignItems: "center",
           }}
         >
-          <Typography variant="h4" textAlign="center">
+          <TypoYoad variant="h4" textAlign="center">
             Tap on Brianny as Soon as at it Appears!
-          </Typography>
+          </TypoYoad>
         </Box>
       ) : (
         <Box
