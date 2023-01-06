@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import { YoadButn } from "../../YoadButn";
 import { Button } from "@mui/material";
 import { Person } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginStatus() {
   const [signOut, setSignOut] = useState<boolean>(false);
@@ -25,6 +26,8 @@ export default function LoginStatus() {
   };
 
   const { user } = useContext(UserContext);
+
+  const nav = useNavigate();
 
   return (
     <Box
@@ -61,7 +64,7 @@ export default function LoginStatus() {
             onClose={handleClose}
             TransitionComponent={Fade}
           >
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={() => nav("/my-account")}>My account</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
         </Box>
