@@ -1,4 +1,10 @@
-import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useContext, useEffect } from "react";
@@ -42,74 +48,78 @@ export default function MyAccount() {
           width="100vw"
         >
           <Grid item>
-            <Table>
-              <TableBody>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                  <TableCell>
-                    <TypoYoad> shd hjkas djkh</TypoYoad>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+            <Grid
+              container
+              direction="column"
+              height="50vh"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Neurons available</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Tests completed</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Username</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Email</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Password</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Notifications</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Newsletter</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad>asdas</TypoYoad>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box right="100px" position="relative" width="40vw">
+                  <TypoYoad>Privacy policy</TypoYoad>
+                </Box>
+                <Box left="100px" position="relative" width="40vw">
+                  <TypoYoad></TypoYoad>
+                </Box>
+              </Grid>{" "}
+            </Grid>
           </Grid>
         </Grid>
       </Box>
