@@ -13,102 +13,107 @@ export default function MyAccount() {
   let { user } = useContext(UserContext);
 
   return user ? (
-    <>
+    <Box bgcolor={NeurobicaColors.yea} height="100vh" width="100vw">
       <StatusBar />
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        bgcolor={NeurobicaColors.yea}
-        height="100vh"
+      <Box
+        position="fixed"
+        component="img"
+        src={logo}
+        sx={{
+          aspectRatio: "1.75 / 1",
+          width: "70%",
+          left: "12%",
+          top: "6%",
+        }}
+      />
+      <Box
+        position="fixed"
         width="100vw"
+        sx={{
+          top: "30%",
+        }}
       >
-        <Grid item>
-          <Box
-            position="fixed"
-            component="img"
-            src={logo}
-            sx={{
-              aspectRatio: "1.75 / 1",
-              width: "70%",
-              left: "12%",
-              top: "6%",
-            }}
-          />
+        <Grid
+          container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="center"
+          height="50vh"
+          width="100vw"
+        >
+          <Grid item>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                  <TableCell>
+                    <TypoYoad> shd hjkas djkh</TypoYoad>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Table>
-            <TableBody>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-                <TableCell>
-                  <TypoYoad> shd hjkas djkh</TypoYoad>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </Grid>
-      </Grid>
-    </>
+      </Box>
+    </Box>
   ) : (
     <LoginPage />
   );
