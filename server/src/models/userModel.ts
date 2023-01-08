@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema(
     serialNumber: { type: Number, required: true, unique: true },
     deactivated: { type: Boolean, required: true },
     deleted: { type: Boolean, required: true },
+    neurons: { type: Number, required: true },
     fullname: {
       type: String,
       required: true,
