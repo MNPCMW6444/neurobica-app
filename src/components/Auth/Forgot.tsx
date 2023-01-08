@@ -452,10 +452,11 @@ export default function Forgot() {
       <Grid item xs={4}>
         <Button
           onClick={async () => {
-            if (label === "Send me a reset key")
-              await axios.post(domain + "user/passresfin", { email });
-            else
-              await axios.post(domain + "user/", {
+            if (label === "Send me a reset key") {
+              await axios.post(domain + "user/passresreq", { email });
+              setLabel("continue");
+            } else
+              await axios.post(domain + "user/passresfin", {
                 email,
                 key,
                 password,

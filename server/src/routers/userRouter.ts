@@ -140,6 +140,9 @@ router.post("/signupfin", async (req, res) => {
     const savedUser = await new User({
       serialNumber: (await User.find()).length + 1,
       deactivated: false,
+      neurons:0
+      notifications: false,
+      newsletter: false,
       deleted: false,
       email,
       fullname,
@@ -271,20 +274,13 @@ router.post("/passresfin", async (req, res) => {
       return res.status(400).json({
         clientError: "Passwords doesn't match",
       });
-    const existingUser = await User.findOne({ email });
-    if (existingUser)
-      return res.status(400).json({
-        clientError: "An account with this email already exists",
-      });
-    const existingKey = await RequestForAccount.findOne({ key });
-    if (!existingKey || existingKey.email !== email)
-      return res.status(400).json({
-        clientError: "The key is wrong",
-      });
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     const user = (await User.find({ email }))[0];
+    user.neurons = user.neurons | 0;
     user.deactivated = false;
+    user.notifications = false;
+    user.newsletter = false;
     user.deleted = false;
     user.passwordHash = passwordHash;
     await user.save();
