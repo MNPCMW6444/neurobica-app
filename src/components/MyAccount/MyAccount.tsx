@@ -9,12 +9,21 @@ import NeurobicaColors from "../../util/NeurobicaColors";
 import LoginPage from "../Auth/Auth";
 import StatusBar from "../StatusBar/StatusBar";
 import logo from "../Tutorial/assets/logo.png";
+import Checkbox from "@mui/material/Checkbox";
 
 export default function MyAccount() {
   let { user } = useContext(UserContext);
 
   const [memory, setMemory] = useState<number[]>([]);
   const [response, setResponse] = useState<number[]>([]);
+
+  const [notifications, setNotifications] = useState<boolean>(false);
+  const [newsletter, setNewsletter] = useState<boolean>(false);
+
+  useEffect(() => {
+    setNotifications(user?.notifications || false);
+    setNewsletter(user?.newsletter || false);
+  }, [user]);
 
   useEffect(() => {
     const getMemory = async () => {
@@ -163,7 +172,12 @@ export default function MyAccount() {
                   width="40vw"
                   display="inline-block"
                 >
-                  <TypoYoad>Password</TypoYoad>
+                  <TypoYoad>
+                    Password{"  "}
+                    <a style={{ color: "#CCCCCC" }} href="/forgotpass">
+                      edit
+                    </a>
+                  </TypoYoad>
                 </Box>
                 <Box
                   position="relative"
@@ -189,7 +203,20 @@ export default function MyAccount() {
                   display="inline-block"
                   right="70px"
                 >
-                  <TypoYoad>CHECKBOX</TypoYoad>
+                  <TypoYoad align="center">
+                    <Checkbox
+                      value={notifications}
+                      onChange={(e: any) => {
+                        setNotifications(e.target.value);
+                      }}
+                      sx={{
+                        "& .MuiSvgIcon-root": {
+                          fontSize: 40,
+                          color: "#72c87a",
+                        },
+                      }}
+                    />
+                  </TypoYoad>
                 </Box>
               </Grid>
               <Grid item>
@@ -207,7 +234,20 @@ export default function MyAccount() {
                   display="inline-block"
                   right="70px"
                 >
-                  <TypoYoad>CHECKBOX</TypoYoad>
+                  <TypoYoad align="center">
+                    <Checkbox
+                      value={newsletter}
+                      onChange={(e: any) => {
+                        setNewsletter(e.target.value);
+                      }}
+                      sx={{
+                        "& .MuiSvgIcon-root": {
+                          fontSize: 40,
+                          color: "#72c87a",
+                        },
+                      }}
+                    />
+                  </TypoYoad>
                 </Box>
               </Grid>
               <Grid item>

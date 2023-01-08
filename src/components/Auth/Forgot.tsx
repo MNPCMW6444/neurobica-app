@@ -17,8 +17,10 @@ import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import domain from "../../util/domain";
 import { Store } from "react-notifications-component";
+import Button from "@mui/material/Button";
+import { TypoYoad } from "../../TypoYoad";
+import domain from "../../util/domain";
 
 export default function Forgot() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -30,7 +32,7 @@ export default function Forgot() {
   const [password, setPassword] = useState("");
   const [passwordagain, setPasswordagain] = useState("");
   const [label, setLabel] = useState<string>(
-    isSignIn ? "Send me a reset link" : "Continiue"
+    isSignIn ? "Send me a reset key" : "Continiue"
   );
 
   let navigate = useNavigate();
@@ -445,6 +447,24 @@ export default function Forgot() {
             setPasswordagain(e.target.value);
           }}
         />
+      </Grid>
+
+      <Grid item xs={4}>
+        <Button
+          onClick={async () => {
+            if (label === "Send me a reset key")
+              await axios.post(domain + "user/passresfin", { email });
+            else
+              await axios.post(domain + "user/", {
+                email,
+                key,
+                password,
+                passwordagain,
+              });
+          }}
+        >
+          {label}
+        </Button>
       </Grid>
     </Grid>
   );
