@@ -140,7 +140,7 @@ router.post("/signupfin", async (req, res) => {
     const savedUser = await new User({
       serialNumber: (await User.find()).length + 1,
       deactivated: false,
-      neurons:0
+      neurons: 0,
       notifications: false,
       newsletter: false,
       deleted: false,
