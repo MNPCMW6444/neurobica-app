@@ -14,8 +14,22 @@ import Box from "@mui/material/Box";
 import Forgotpass from "./components/Auth/Forgot";
 import { TypoYoad } from "./TypoYoad";
 import Tutorial from "./components/Tutorial/Tutorial";
-import BottomBar from "./components/BottomBar/BottomBar";
 import Test from "./components/Test/Test";
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const app = initializeApp({
+  apiKey: "AIzaSyA5Uw2a19wNFOIhFlDARkYKM59qzSM54js",
+  authDomain: "supplements-app-c9e0c.firebaseapp.com",
+  projectId: "supplements-app-c9e0c",
+  storageBucket: "supplements-app-c9e0c.appspot.com",
+  messagingSenderId: "1047895685675",
+  appId: "1:1047895685675:web:e055d2988ee44a6730886e",
+  measurementId: "G-1ZS2G6VM8F",
+});
+
+const analytics = getAnalytics(app);
 
 Axios.defaults.withCredentials = true;
 
