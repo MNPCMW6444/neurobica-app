@@ -5,6 +5,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import { useState } from "react";
 import NeurobicaColors from "../../util/NeurobicaColors";
+import Box from "@mui/material/Box";
 
 export default function BottomBar() {
   const [value, setValue] = useState<string>();
@@ -17,7 +18,7 @@ export default function BottomBar() {
         //setValue(newValue);
       }}
       sx={{
-        backgroundColor: "#00000000",
+        backgroundColor: NeurobicaColors.yea,
         height: "10%",
         position: "fixed",
         bottom: "0",
@@ -35,7 +36,7 @@ export default function BottomBar() {
       />
       <BottomNavigationAction
         sx={{ color: NeurobicaColors.gold }}
-        //   href="/"
+        href="/"
         label="Home"
         icon={<HomeIcon />}
       />

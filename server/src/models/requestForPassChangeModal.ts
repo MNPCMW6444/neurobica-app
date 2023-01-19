@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const requestForPassChangeModal = new mongoose.Schema(
   {
-    serialNumber: { type: Number, required: true, unique: true },
     email: {
       type: String,
       required: true,

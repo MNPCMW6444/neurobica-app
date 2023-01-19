@@ -10,6 +10,7 @@ import LoginPage from "../Auth/Auth";
 import StatusBar from "../StatusBar/StatusBar";
 import logo from "../Tutorial/assets/logo.png";
 import Checkbox from "@mui/material/Checkbox";
+import BottomBar from "../BottomBar/BottomBar";
 
 export default function MyAccount() {
   let { user } = useContext(UserContext);
@@ -48,13 +49,19 @@ export default function MyAccount() {
     getResponse();
   }, []);
 
+  const updateN = async (n: boolean, ne: boolean) =>
+    await axios.post(domain + "user/updaten", {
+      notifications: n,
+      newsletter: ne,
+    });
+
   const tests = Math.min(
     memory ? memory.length || 0 : 0,
     response ? response.length || 0 : 0
   );
 
   return user ? (
-    <Box bgcolor={NeurobicaColors.yea} height="100vh" width="100vw">
+    <Box bgcolor={NeurobicaColors.yea} height="90vh" width="100vw">
       <StatusBar />
       <Box
         position="fixed"
@@ -205,9 +212,10 @@ export default function MyAccount() {
                 >
                   <TypoYoad align="center">
                     <Checkbox
-                      value={notifications}
+                      checked={notifications}
                       onChange={(e: any) => {
-                        setNotifications(e.target.value);
+                        setNotifications(!notifications);
+                        updateN(!notifications, newsletter);
                       }}
                       sx={{
                         "& .MuiSvgIcon-root": {
@@ -236,9 +244,10 @@ export default function MyAccount() {
                 >
                   <TypoYoad align="center">
                     <Checkbox
-                      value={newsletter}
+                      checked={newsletter}
                       onChange={(e: any) => {
-                        setNewsletter(e.target.value);
+                        setNewsletter(!newsletter);
+                        updateN(notifications, !newsletter);
                       }}
                       sx={{
                         "& .MuiSvgIcon-root": {
@@ -272,6 +281,7 @@ export default function MyAccount() {
           </Grid>
         </Grid>
       </Box>
+      <BottomBar />
     </Box>
   ) : (
     <LoginPage />

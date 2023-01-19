@@ -88,7 +88,7 @@ export default function Home() {
           direction="column"
           justifyContent="flex-start"
           alignItems="center"
-          height="100vh"
+          height="90vh"
           width="100vw"
           overflow="hidden"
           bgcolor={NeurobicaColors.yea}

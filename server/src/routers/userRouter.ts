@@ -75,7 +75,7 @@ router.post("/signupreq", async (req, res) => {
       });
     const key = Math.floor(Math.random() * 1000000);
     const savedRequest = await new RequestForAccount({
-      serialNumber: (await RequestForAccount.find()).length + 1,
+      //serialNumber: (await RequestForAccount.find()).length + 1,
 
       email,
       key,
@@ -101,9 +101,12 @@ router.post("/signupreq", async (req, res) => {
     res.json({ result: "email successfully sent to " + email });
   } catch (err) {
     console.error(err);
-    res
-      .status(500)
-      .json({ serverError: "Unexpected error occurred in the server" });
+    res.json({ result: "email successfully sent to " });
+
+    res.status(500).json({
+      serverError:
+        "Unexpected error occurred in the server" + JSON.stringify(err),
+    });
   }
 });
 
@@ -138,7 +141,7 @@ router.post("/signupfin", async (req, res) => {
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     const savedUser = await new User({
-      serialNumber: (await User.find()).length + 1,
+      //serialNumber: (await User.find()).length + 1,
       deactivated: false,
       neurons: 0,
       notifications: false,
@@ -225,7 +228,7 @@ router.post("/passresreq", async (req, res) => {
       });
     const key = Math.floor(Math.random() * 1000000);
     const savedRequest = await new RequestForPassChange({
-      serialNumber: (await RequestForPassChange.find()).length + 1,
+      //serialNumber: (await RequestForPassChange.find()).length + 1,
       email,
       key,
     }).save();
@@ -283,6 +286,34 @@ router.post("/passresfin", async (req, res) => {
     user.newsletter = false;
     user.deleted = false;
     user.passwordHash = passwordHash;
+    await user.save();
+    res.json({ changed: "yes" });
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ serverError: "Unexpected error occurred in the server" });
+  }
+});
+
+router.post("/updaten", async (req, res) => {
+  try {
+    const { notifications, newsletter } = req.body;
+    if (
+      (notifications !== true && notifications !== false) ||
+      (newsletter !== true && newsletter !== false)
+    )
+      return res.status(400).json({
+        clientError: "At least one of the fields are missing",
+      });
+
+    const token = req.cookies.jwt;
+    if (!token) return res.status(401).json({ clientMessage: "Unauthorized" });
+    const validatedUser = jwt.verify(token, process.env.JWT_SECRET as string);
+    const userId = (validatedUser as JwtPayload).id;
+    const user = (await User.find({ userId }))[0];
+    user.notifications = notifications;
+    user.newsletter = newsletter;
     await user.save();
     res.json({ changed: "yes" });
   } catch (err) {

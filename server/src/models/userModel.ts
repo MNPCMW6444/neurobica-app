@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    serialNumber: { type: Number, required: true, unique: true },
     deactivated: { type: Boolean, required: true },
     deleted: { type: Boolean, required: true },
     notifications: { type: Boolean, required: true },
