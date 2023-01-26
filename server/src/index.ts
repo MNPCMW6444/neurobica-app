@@ -91,7 +91,7 @@ app.use(
     origin:
       process.env.NODE_ENV === "development"
         ? ["http://localhost:5665"]
-        : ["https://app.neurobica.online"],
+        : ["https://app.neurobica.online", "https://hedermmm.netlify.app"],
     credentials: true,
   })
 );
