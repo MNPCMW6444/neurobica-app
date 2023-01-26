@@ -171,7 +171,7 @@ export default function Auth() {
                   ),
                 }}
                 value={email}
-                placeholder="Enter Your Email Address"
+                placeholder={"" + res()}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -425,7 +425,7 @@ export default function Auth() {
                   ),
                 }}
                 value={email}
-                placeholder="Enter Your Email Address"
+                placeholder={"" + res()}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -525,3 +525,125 @@ export default function Auth() {
     </Grid>
   );
 }
+
+const medareg = (k: number, arr: number[]) => {
+  let ret = 0;
+  if (k < 0) return -1;
+  arr.forEach((n) => {
+    if (n < k) ret = ret + 2;
+    else ret = ret + 3;
+  });
+  return ret;
+};
+
+const medaregB = (k: number, arr: number[]) => {
+  if (k < 0) return -1;
+  let left = 0;
+  let right = arr.length - 1;
+  let index = -1;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] >= k) {
+      index = mid;
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return (
+    (index === -1 ? 0 : index) * 2 +
+    (arr.length - (index === -1 ? 0 : index)) * 3
+  );
+};
+
+const res = () => medaregB(2, [1, 2, 3, 4, 5]);
+
+/* 
+
+#include <stdio.h>
+
+int medareg(int k, int arr[], int n) {
+    if (k < 0) return -1;
+    int left = 0;
+    int right = n - 1;
+    int index = -1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] >= k) {
+            index = mid;
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return (index == -1 ? 0 : index) * 2 + (n - (index == -1 ? 0 : index)) * 3;
+}
+
+int find_optimal_k(int arr1[], int n, int arr2[], int m) {
+    int optimal_k = arr1[0];
+    int optimal_res = 0;
+    for (int i = 0; i < m; i++) {
+        int left = 0;
+        int right = n - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr1[mid] <= arr2[i]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        int res1 = (left) * 2 + (n - left) * 3;
+        int res2 = (i) * 2 + (m - i) * 3;
+        if (res1 > res2) {
+            if (res1 > optimal_res) {
+                optimal_k = arr1[left - 1];
+                optimal_res = res1;
+            }
+        }
+    }
+    return optimal_k;
+}
+
+
+
+int main() {
+    int k = 2;
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int result = medareg(k, arr, n);
+    printf("Input: k=%d, arr=[", k);
+    for (int i = 0; i < n; i++) {
+        printf("%d, ", arr[i]);
+    }
+    printf("]\nOutput: %d\n", result);
+    k = 4;
+    int arr1[] = {1, 2, 3, 5};
+    n = sizeof(arr1) / sizeof(arr1[0]);
+    result = medareg(k, arr1, n);
+    printf("Input: k=%d, arr=[", k);
+    for (int i = 0; i < n; i++) {
+        printf("%d, ", arr1[i]);
+    }
+    printf("]\nOutput: %d\n", result);
+    k = 0;
+    int arr2[] = {1, 2, 3, 5};
+    n = sizeof(arr2) / sizeof(arr2[0]);
+    result = medareg(k, arr2, n);
+    printf("Input: k=%d, arr=[", k);
+    for (int i = 0; i < n; i++) {
+        printf("%d, ", arr2[i]);
+    }
+    printf("]\nOutput: %d\n", result);
+    k = 0;
+    int arr3[] = {1, 2, 3, 4, 5};
+    n = sizeof(arr3) / sizeof(arr3[0]);
+    result = medareg(k, arr3, n);
+    printf("Input: k=%d, arr=[", k);
+    for (int i = 0; i < n; i++) {
+        printf("%d, ", arr3[i]);
+    }
+    printf("]\nOutput: %d\n", result);
+    return 0;
+}
+ */
