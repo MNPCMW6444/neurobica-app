@@ -3,6 +3,7 @@ import express, { Request } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose, { ConnectOptions } from "mongoose";
+import mmmRouter from "./routers/mmmRouter";
 import userRouter from "./routers/userRouter";
 import cookieParser from "cookie-parser";
 import memoryRouter from "./routers/memoryRouter";
@@ -90,7 +91,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "development"
-        ? ["http://localhost:5665"]
+        ? ["http://localhost:5665", "http://localhost:3000"]
         : ["https://app.neurobica.online", "https://hedermmm.netlify.app"],
     credentials: true,
   })
@@ -115,6 +116,7 @@ app.use((req, res, next) => {
       .json({ serverError: "Server is down now. Please try again later." });
 });
 
+app.use("/mmm", mmmRouter);
 app.use("/user", userRouter);
 app.use("/memory", memoryRouter);
 app.use("/response", responseRouter);
