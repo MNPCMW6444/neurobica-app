@@ -37,7 +37,7 @@ export default function TermsAndConditions() {
             <p>
               <strong>Application</strong> means the software program provided
               by the Company downloaded by You on any electronic device, named
-              Neurobica Platform
+              CapHub Platform
             </p>
           </li>
           <li>
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
             <p>
               <strong>Company</strong> (referred to as either &quot;the
               Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;
-              in this Agreement) refers to Neurobica LLC, N Gould St, Ste R,
+              in this Agreement) refers to CapHub LLC, N Gould St, Ste R,
               Sheridan, WY 8281.
             </p>
           </li>
@@ -159,13 +159,13 @@ export default function TermsAndConditions() {
           </li>
           <li>
             <p>
-              <strong>Website</strong> refers to Neurobica, accessible from
+              <strong>Website</strong> refers to CapHub, accessible from
               <a
-                href="https://neurobica.online"
+                href="https://CapHub.online"
                 rel="external nofollow noopener"
                 target="_blank"
               >
-                https://neurobica.online
+                https://CapHub.online
               </a>
             </p>
           </li>
@@ -630,7 +630,7 @@ export default function TermsAndConditions() {
           believe that the copyrighted work has been copied in a way that
           constitutes copyright infringement that is taking place through the
           Service, You must submit Your notice in writing to the attention of
-          our copyright agent via email at legal@neurobica.online and include in
+          our copyright agent via email at legal@CapHub.online and include in
           Your notice a detailed description of the alleged infringement.
         </p>
         <p>
@@ -676,11 +676,10 @@ export default function TermsAndConditions() {
           </li>
         </ul>
         <p>
-          You can contact our copyright agent via email at
-          legal@neurobica.online. Upon receipt of a notification, the Company
-          will take whatever action, in its sole discretion, it deems
-          appropriate, including removal of the challenged content from the
-          Service.
+          You can contact our copyright agent via email at legal@CapHub.online.
+          Upon receipt of a notification, the Company will take whatever action,
+          in its sole discretion, it deems appropriate, including removal of the
+          challenged content from the Service.
         </p>
         <h1>Intellectual Property</h1>
         <p>
@@ -878,17 +877,17 @@ export default function TermsAndConditions() {
         </p>
         <ul>
           <li>
-            <p>By email: info@neurobica.online</p>
+            <p>By email: info@CapHub.online</p>
           </li>
           <li>
             <p>
               By visiting this page on our website:
               <a
-                href="Https://www.neurobica.online"
+                href="Https://www.CapHub.online"
                 rel="external nofollow noopener"
                 target="_blank"
               >
-                https://www.neurobica.online
+                https://www.CapHub.online
               </a>
             </p>
           </li>
